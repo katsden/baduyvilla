@@ -1,0 +1,148 @@
+/* ==========================================================================
+   tokens.css — Baduy Villa
+   Satu-satunya sumber kebenaran untuk warna, jarak, tipografi, dan gerak.
+   Tidak ada nilai mentah di file lain. Kalau butuh nilai baru, tambah di sini.
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------
+     WARNA
+     Rasio kontras dihitung terhadap --nila (WCAG 2.1):
+       --batu   di atas --nila  = 4.81:1  → lolos AA teks normal
+       --rotan  di atas --nila  = 5.50:1  → lolos AA teks normal
+       --kapas  di atas --nila  = 15.4:1  → lolos AAA
+       --rotan  di atas --kapas = 2.75:1  → GAGAL. Garis/border saja, bukan teks.
+     --------------------------------------------------------------------- */
+  --nila:  #151A18;   /* background utama */
+  --hijau: #2A3B2F;   /* section alternatif, kartu, placeholder foto */
+  --batu:  #8C8578;   /* teks sekunder, garis pemisah */
+  --rotan: #A98B62;   /* aksen tunggal — maksimal satu per section */
+  --kapas: #F2EDE4;   /* teks di atas gelap, background section terang */
+
+  /* Turunan. Dipakai supaya rgba() tidak ditulis ulang di mana-mana. */
+  --kapas-80: rgba(242, 237, 228, 0.80);  /* body text di atas gelap — 10.0:1 */
+  --kapas-56: rgba(242, 237, 228, 0.56);  /* caption, meta */
+  --kapas-12: rgba(242, 237, 228, 0.12);  /* garis pemisah di atas gelap */
+  --nila-80:  rgba(21, 26, 24, 0.80);     /* teks di atas section terang */
+  --nila-56:  rgba(21, 26, 24, 0.56);
+  --nila-12:  rgba(21, 26, 24, 0.12);     /* garis pemisah di atas terang */
+
+  /* Overlay pengaman kontras untuk teks di atas foto. Wajib, bukan opsional. */
+  --scrim-full: linear-gradient(to bottom, rgba(21,26,24,.55), rgba(21,26,24,.70));
+  --scrim-base: linear-gradient(to top, rgba(21,26,24,.85) 0%, rgba(21,26,24,.35) 45%, transparent 100%);
+
+  /* Peran semantik. Di-override oleh [data-section="terang"] di base.css. */
+  --bg:        var(--nila);
+  --fg:        var(--kapas);
+  --fg-muted:  var(--kapas-80);
+  --fg-faint:  var(--kapas-56);
+  --rule:      var(--kapas-12);
+  --focus:     var(--kapas);
+
+  /* ---------------------------------------------------------------------
+     TIPOGRAFI
+     --------------------------------------------------------------------- */
+  --font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', Georgia, serif;
+  --font-body: 'Archivo', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+
+  --size-h1:    clamp(3.5rem, 9vw, 9rem);
+  --size-h2:    clamp(2.25rem, 5vw, 4.5rem);
+  --size-h3:    clamp(1.5rem, 2.4vw, 2.125rem);
+  --size-lead:  clamp(1.25rem, 1.8vw, 1.5rem);
+  --size-body:  clamp(1.0625rem, 1.1vw, 1.125rem);
+  --size-small: 0.875rem;
+  --size-label: 0.6875rem;
+
+  --lh-tight: 0.95;
+  --lh-h2:    1.05;
+  --lh-h3:    1.2;
+  --lh-body:  1.7;
+
+  --ls-h1:    -0.02em;
+  --ls-h2:    -0.015em;
+  --ls-label:  0.2em;
+
+  /* ---------------------------------------------------------------------
+     JARAK — basis 8px
+     --------------------------------------------------------------------- */
+  --sp-1:  0.5rem;    /*   8 */
+  --sp-2:  1rem;      /*  16 */
+  --sp-3:  1.5rem;    /*  24 */
+  --sp-4:  2.5rem;    /*  40 */
+  --sp-5:  4rem;      /*  64 */
+  --sp-6:  6rem;      /*  96 */
+  --sp-7:  10rem;     /* 160 */
+  --sp-8:  15rem;     /* 240 */
+
+  /* Jarak antar section: 96px di mobile, 160px di desktop. Kekosongan ini desain. */
+  --section-gap: var(--sp-6);
+
+  /* ---------------------------------------------------------------------
+     LAYOUT
+     --------------------------------------------------------------------- */
+  --max-w:      1440px;
+  --gutter:     var(--sp-3);   /* 24px */
+  --columns:    12;
+  --measure:    620px;         /* lebar maksimal blok teks */
+  --nav-h:      88px;
+  --nav-h-kecil: 64px;         /* nav setelah scroll — mengecil, tidak hilang */
+  --tap:        44px;          /* target sentuh minimal */
+
+  /* Sudut. Kecil saja — sudut membulat besar dilarang. */
+  --radius: 2px;
+
+  /* ---------------------------------------------------------------------
+     GERAK
+     Satu easing untuk semua. Durasi 0.8s–1.2s. Pelan itu disengaja.
+     --------------------------------------------------------------------- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --dur-cepat:  0.4s;   /* garis bawah tautan */
+  --dur-sedang: 0.8s;   /* reveal teks */
+  --dur-pelan:  1.2s;   /* reveal foto besar */
+
+  --tirai-naik:  0.6s;
+  --tirai-jeda:  0.15s;  /* jeda sinematik — jangan dihapus */
+  --tirai-turun: 0.7s;
+  --stagger:     60ms;
+
+  /* ---------------------------------------------------------------------
+     LAPISAN
+     --------------------------------------------------------------------- */
+  --z-konten:  1;
+  --z-nav:     100;
+  --z-sheet:   200;   /* bottom sheet filter di mobile */
+  --z-tirai:   9000;  /* tirai transisi + preloader */
+  --z-skip:    9999;
+}
+
+/* Jarak antar section melebar di desktop. */
+@media (min-width: 768px) {
+  :root {
+    --section-gap: var(--sp-7);
+    --gutter: var(--sp-4);
+  }
+}
+
+/* Section terang — dipakai maksimal dua kali per halaman sebagai jeda. */
+[data-section='terang'] {
+  --bg:       var(--kapas);
+  --fg:       var(--nila);
+  --fg-muted: var(--nila-80);
+  --fg-faint: var(--nila-56);
+  --rule:     var(--nila-12);
+  --focus:    var(--nila);
+}
+
+/* Seluruh animasi dimatikan. Tirai diganti cross-fade cepat, bukan mati total. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-cepat:  0.01s;
+    --dur-sedang: 0.01s;
+    --dur-pelan:  0.01s;
+    --tirai-naik:  0.2s;
+    --tirai-jeda:  0s;
+    --tirai-turun: 0.2s;
+    --stagger:     0ms;
+  }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratinjau Tahap 1 — Token &amp; Base</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<style>
+  /* Khusus halaman pratinjau ini. Tidak ikut ke situs asli. */
+  .petak { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--sp-2); }
+  .swatch { border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+  .swatch i { display: block; height: 88px; }
+  .swatch div { padding: var(--sp-1) var(--sp-2); }
+  .swatch code { font-size: .75rem; color: var(--fg-faint); font-family: ui-monospace, monospace; }
+  .jarak { display: flex; align-items: flex-end; gap: var(--sp-1); flex-wrap: wrap; }
+  .jarak span { background: var(--rotan); width: 18px; display: block; }
+  .catatan { font-size: var(--size-small); color: var(--fg-faint); max-width: var(--measure); }
+</style>
+</head>
+<body>
+
+<a class="lewati" href="#utama">Lewati ke konten</a>
+
+<main id="utama">
+
+  <!-- Skala tipografi ----------------------------------------------------- -->
+  <section class="section">
+    <div class="wadah">
+      <span class="label">Tahap 1 — Pratinjau</span>
+      <h1>Keheningan<br>dan kriya</h1>
+      <hr class="garis">
+      <div class="grid">
+        <div class="kolom-offset">
+          <p class="lead">Ini kalimat pembuka. Ukurannya di antara judul dan body, dipakai
+            sekali per section untuk membuka bacaan.</p>
+          <p>Ini teks body. Kontras ukurannya terhadap judul sengaja dibuat tajam — bukan
+            untuk terlihat seimbang, tapi supaya halamannya terasa editorial. Blok teks
+            dibatasi 620px dan diletakkan di kolom 7&ndash;11, tidak rata kiri.</p>
+          <p>Warnanya <code>--kapas-80</code> di atas <code>--nila</code>, rasio kontras
+            10,0:1. Aman jauh di atas ambang AA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Palet --------------------------------------------------------------- -->
+  <section class="section">
+    <div class="wadah">
+      <span class="label">Palet</span>
+      <h2>Lima warna, satu aksen</h2>
+      <hr class="garis">
+      <div class="petak">
+        <div class="swatch"><i style="background:var(--nila)"></i><div>Nila<br><code>#151A18</code></div></div>
+        <div class="swatch"><i style="background:var(--hijau)"></i><div>Hijau<br><code>#2A3B2F</code></div></div>
+        <div class="swatch"><i style="background:var(--batu)"></i><div>Batu<br><code>4,81:1</code></div></div>
+        <div class="swatch"><i style="background:var(--rotan)"></i><div>Rotan<br><code>5,50:1</code></div></div>
+        <div class="swatch"><i style="background:var(--kapas)"></i><div>Kapas<br><code>15,4:1</code></div></div>
+      </div>
+      <p class="catatan" style="margin-top:var(--sp-3)">Rasio dihitung terhadap <code>--nila</code>.
+        Rotan di atas kapas hanya 2,75:1 — di section terang, rotan cuma boleh jadi garis, tidak boleh jadi teks.</p>
+    </div>
+  </section>
+
+  <!-- Tombol dan tautan --------------------------------------------------- -->
+  <section class="section">
+    <div class="wadah">
+      <span class="label">Titik keputusan</span>
+      <h2>Tombol dan tautan</h2>
+      <hr class="garis">
+      <p style="display:flex; gap:var(--sp-2); flex-wrap:wrap; align-items:center">
+        <a class="tombol" href="#utama">Lihat paviliun</a>
+        <a class="tombol tombol--rotan" href="#utama">Reservasi</a>
+        <a class="tautan" href="#utama">Tautan biasa</a>
+      </p>
+      <p class="catatan" style="margin-top:var(--sp-3)">Rotan muncul satu kali di section ini,
+        itu batasnya. Tombol tidak membesar saat hover — yang berubah cuma isian.
+        Tekan <kbd>Tab</kbd> untuk mengecek ring fokus.</p>
+    </div>
+  </section>
+
+  <!-- Section terang ------------------------------------------------------ -->
+  <section class="section" data-section="terang">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-tengah">
+          <span class="label">Jeda</span>
+          <h2>Section terang</h2>
+          <p style="margin-top:var(--sp-2)">Peran warna dibalik otomatis lewat
+            <code>[data-section="terang"]</code>. Tidak ada satu pun kelas di dalam blok ini
+            yang perlu diubah — teks, garis, dan ring fokus ikut menyesuaikan sendiri.</p>
+          <p style="margin-top:var(--sp-3)">
+            <a class="tombol" href="#utama">Tombol di latar terang</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rasio media --------------------------------------------------------- -->
+  <section class="section">
+    <div class="wadah">
+      <span class="label">Media</span>
+      <h2>Empat rasio</h2>
+      <hr class="garis">
+      <div class="petak">
+        <figure>
+          <div class="media r-kartu" data-img="Kartu paviliun 3:4"></div>
+          <figcaption class="caption">3:4 — kartu paviliun</figcaption>
+        </figure>
+        <figure>
+          <div class="media r-makro" data-img="Makro material 4:5"></div>
+          <figcaption class="caption">4:5 — makro material</figcaption>
+        </figure>
+        <figure>
+          <div class="media r-galeri" data-img="Galeri 1:1"></div>
+          <figcaption class="caption">1:1 — galeri</figcaption>
+        </figure>
+      </div>
+      <figure style="margin-top:var(--sp-4)">
+        <div class="media r-hero" data-scrim="bawah" data-img="Hero 16:9 dengan scrim bawah"
+             style="display:flex; align-items:flex-end; padding:var(--sp-3)">
+          <figcaption class="caption" style="position:relative; z-index:1; color:var(--kapas)">
+            16:9 — hero, dengan gradient pengaman kontras di bawah
+          </figcaption>
+        </div>
+      </figure>
+      <p class="catatan" style="margin-top:var(--sp-3)">Placeholder masih blok
+        <code>--hijau</code> polos. Grain dan pattern anyaman menyusul di tahap berikutnya.</p>
+    </div>
+  </section>
+
+  <!-- Skala jarak --------------------------------------------------------- -->
+  <section class="section">
+    <div class="wadah">
+      <span class="label">Jarak</span>
+      <h2>Basis 8px</h2>
+      <hr class="garis">
+      <div class="jarak">
+        <span style="height:var(--sp-1)"></span>
+        <span style="height:var(--sp-2)"></span>
+        <span style="height:var(--sp-3)"></span>
+        <span style="height:var(--sp-4)"></span>
+        <span style="height:var(--sp-5)"></span>
+        <span style="height:var(--sp-6)"></span>
+        <span style="height:var(--sp-7)"></span>
+      </div>
+      <p class="catatan" style="margin-top:var(--sp-3)">8 / 16 / 24 / 40 / 64 / 96 / 160.
+        Jarak antar section pakai 96px di mobile dan 160px di desktop —
+        coba kecilkan lebar jendela, semua section di halaman ini ikut merapat.</p>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
