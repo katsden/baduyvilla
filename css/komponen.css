@@ -216,11 +216,30 @@
 }
 
 /* Reveal berjenjang saat panel dibuka. */
-/* Isi laci menyusul sedikit di belakang lacinya, searah gerak masuk. */
+/* Garis rambut di tepi kiri laci, ditarik dari atas ke bawah setelah
+   lacinya berhenti. Detail kecil, tapi ini yang bikin gerakannya terasa
+   selesai — bukan cuma panel yang muncul lalu diam. */
+.menu__dalam::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rotan);
+  opacity: 0.5;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--dur-pelan) var(--ease) 260ms;
+}
+
+.menu[data-buka='true'] .menu__dalam::before { transform: scaleY(1); }
+
+/* Isi laci menyusul di belakang lacinya, searah gerak masuk. */
 .menu__daftar a,
 .menu__samping > * {
   opacity: 0;
-  transform: translateX(28px);
+  transform: translateX(44px);
   transition: opacity var(--dur-sedang) var(--ease),
               transform var(--dur-sedang) var(--ease),
               color var(--dur-cepat) var(--ease);
@@ -232,12 +251,25 @@
   transform: none;
 }
 
-.menu__daftar a:nth-child(1) { transition-delay: 140ms; }
-.menu__daftar a:nth-child(2) { transition-delay: 200ms; }
-.menu__daftar a:nth-child(3) { transition-delay: 260ms; }
-.menu__daftar a:nth-child(4) { transition-delay: 320ms; }
-.menu__daftar a:nth-child(5) { transition-delay: 380ms; }
-.menu__samping > *           { transition-delay: 440ms; }
+.menu__daftar a:nth-child(1) { transition-delay: 240ms; }
+.menu__daftar a:nth-child(2) { transition-delay: 330ms; }
+.menu__daftar a:nth-child(3) { transition-delay: 420ms; }
+.menu__daftar a:nth-child(4) { transition-delay: 510ms; }
+.menu__daftar a:nth-child(5) { transition-delay: 600ms; }
+.menu__samping > *           { transition-delay: 690ms; }
+
+/* Nomor urut masuk sedikit setelah namanya, jadi mata membaca nama dulu. */
+.menu__no {
+  opacity: 0;
+  transition: opacity var(--dur-sedang) var(--ease);
+}
+
+.menu[data-buka='true'] .menu__daftar a:nth-child(1) .menu__no { transition-delay: 420ms; }
+.menu[data-buka='true'] .menu__daftar a:nth-child(2) .menu__no { transition-delay: 510ms; }
+.menu[data-buka='true'] .menu__daftar a:nth-child(3) .menu__no { transition-delay: 600ms; }
+.menu[data-buka='true'] .menu__daftar a:nth-child(4) .menu__no { transition-delay: 690ms; }
+.menu[data-buka='true'] .menu__daftar a:nth-child(5) .menu__no { transition-delay: 780ms; }
+.menu[data-buka='true'] .menu__no { opacity: 1; }
 
 .menu__samping { max-width: 34ch; }
 
@@ -250,11 +282,14 @@
 
 @media (prefers-reduced-motion: reduce) {
   .menu__daftar a,
-  .menu__samping > * {
+  .menu__samping > *,
+  .menu__no {
     opacity: 1;
     transform: none;
     transition-delay: 0ms;
   }
+
+  .menu__dalam::before { transform: scaleY(1); }
 }
 
 /* Halaman tanpa hero layar penuh perlu ruang supaya nav tidak menimpa judul. */

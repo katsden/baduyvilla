@@ -16,14 +16,25 @@
   'use strict';
 
   var KUNCI = 'tirai-masuk';
+  var SUDAH_DATANG = 'sudah-datang';
   var akar = document.documentElement;
   var tirai = document.querySelector('[data-tirai]');
   if (!tirai) return;
 
-  var pelan = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var NAIK  = pelan ? 200 : 600;
-  var JEDA  = pelan ? 0   : 150;
-  var TURUN = pelan ? 200 : 700;
+  /* Durasi dibaca dari tokens.css supaya cuma ada satu sumber angka.
+     tokens.css sudah menukar nilainya sendiri di bawah prefers-reduced-motion,
+     jadi JS tidak perlu tahu-menahu soal itu. */
+  function ms(nama, cadangan) {
+    var v = getComputedStyle(akar).getPropertyValue(nama).trim();
+    if (!v) return cadangan;
+    var angka = parseFloat(v);
+    if (isNaN(angka)) return cadangan;
+    return v.indexOf('ms') > -1 ? angka : angka * 1000;
+  }
+
+  var NAIK  = ms('--tirai-naik', 900);
+  var JEDA  = ms('--tirai-jeda', 250);
+  var TURUN = ms('--tirai-turun', 900);
 
   function bersihkan() {
     tirai.removeAttribute('data-status');
@@ -34,10 +45,7 @@
      Kelas tirai-tertutup dipasang oleh skrip sebaris di <head>, jadi panel
      sudah menutup sejak frame pertama. Di sini tinggal diturunkan. */
 
-  if (akar.classList.contains('tirai-tertutup')) {
-    tirai.setAttribute('data-status', 'tertutup');
-    akar.classList.remove('tirai-tertutup');
-
+  function turunkan() {
     /* Paksa hitung ulang tata letak supaya nilai awal terkunci sebelum
        status diganti — tanpa ini transisinya dilewati begitu saja.
 
@@ -56,6 +64,45 @@
     setTimeout(function () {
       if (tirai.hasAttribute('data-status')) bersihkan();
     }, TURUN + 1200);
+  }
+
+  /* ---- Preloader kunjungan pertama -----------------------------------
+     Panel yang sama, fungsi kedua. Layar dimulai tertutup, tirai turun
+     setelah font siap. Tanpa spinner, tanpa angka persen, tanpa logo. */
+
+  function tungguLaluTurunkan() {
+    var mulai = Date.now();
+    var MINIMAL = 900;   /* supaya tidak sekadar berkedip di koneksi cepat */
+    var BATAS = 3500;    /* font gagal dimuat pun, layar tidak pernah terkunci */
+    var sudah = false;
+
+    function lepas() {
+      if (sudah) return;
+      sudah = true;
+      setTimeout(turunkan, Math.max(0, MINIMAL - (Date.now() - mulai)));
+    }
+
+    setTimeout(lepas, BATAS);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(lepas, lepas);
+    } else {
+      window.addEventListener('load', lepas);
+    }
+  }
+
+  if (akar.classList.contains('tirai-tertutup')) {
+    tirai.setAttribute('data-status', 'tertutup');
+    akar.classList.remove('tirai-tertutup');
+
+    var pertamaKali = false;
+    try {
+      pertamaKali = !sessionStorage.getItem(SUDAH_DATANG);
+      sessionStorage.setItem(SUDAH_DATANG, '1');
+    } catch (e) {}
+
+    if (pertamaKali) tungguLaluTurunkan();
+    else turunkan();
   }
 
   try { sessionStorage.removeItem(KUNCI); } catch (e) {}

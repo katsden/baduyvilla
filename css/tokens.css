@@ -104,12 +104,14 @@
   --dur-sedang: 0.8s;   /* reveal teks */
   --dur-pelan:  1.2s;   /* reveal foto besar */
 
-  --dur-laci:    0.6s;   /* laci menu masuk dan keluar */
+  --dur-laci:    0.85s;  /* laci menu masuk dan keluar */
 
-  --tirai-naik:  0.6s;
-  --tirai-jeda:  0.15s;  /* jeda sinematik — jangan dihapus */
-  --tirai-turun: 0.7s;
-  --stagger:     60ms;
+  /* Total perpindahan halaman: 0.9 + 0.25 + 0.9 = 2.05 detik.
+     Pelan itu disengaja — ini elemen andalan situs, bukan sekadar jeda. */
+  --tirai-naik:  0.9s;
+  --tirai-jeda:  0.25s;  /* jeda sinematik — jangan dihapus */
+  --tirai-turun: 0.9s;
+  --stagger:     90ms;
 
   /* ---------------------------------------------------------------------
      LAPISAN
@@ -145,10 +147,14 @@
     --dur-cepat:  0.01s;
     --dur-sedang: 0.01s;
     --dur-pelan:  0.01s;
-    --dur-laci:    0.2s;
-    --tirai-naik:  0.2s;
-    --tirai-jeda:  0s;
-    --tirai-turun: 0.2s;
+    --dur-laci:    0.3s;
+
+    /* Tirai tetap dibuat lambat di sini. Gerak dikurangi berarti tidak ada
+       yang meluncur di layar — bukan berarti perpindahan halaman jadi
+       tidak terlihat. Yang berubah cuma caranya: memudar, tidak bergeser. */
+    --tirai-naik:  0.55s;
+    --tirai-jeda:  0.2s;
+    --tirai-turun: 0.6s;
     --stagger:     0ms;
   }
 }

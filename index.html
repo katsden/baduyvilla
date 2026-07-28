@@ -11,9 +11,10 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/komponen.css">
-<!-- Dipasang sebelum <body> dirender: kalau halaman ini dibuka lewat tirai,
-     panel sudah menutup sejak frame pertama. Tanpa ini ada satu frame bocor. -->
-<script>try{if(sessionStorage.getItem('tirai-masuk'))document.documentElement.classList.add('tirai-tertutup')}catch(e){}</script>
+<!-- Dipasang sebelum <body> dirender, untuk dua keadaan: halaman dibuka lewat
+     tirai, atau ini kunjungan pertama dalam sesi ini (panel jadi preloader).
+     Tanpa ini ada satu frame yang bocor sebelum panel sempat menutup. -->
+<script>try{var s=sessionStorage;if(s.getItem('tirai-masuk')||!s.getItem('sudah-datang'))document.documentElement.classList.add('tirai-tertutup')}catch(e){}</script>
 </head>
 <body data-hero>
 
@@ -67,9 +68,9 @@
            data-img="Satu paviliun di lereng berhutan, kabut lembah, cahaya pertama"
            style="display:grid; place-items:center; text-align:center">
     <div class="wadah" style="position:relative; z-index:3">
-      <h1>Rumah-rumah<br>yang dianyam,<br>bukan dibangun.</h1>
+      <h1>Menginap<br>menurut adat.</h1>
       <p class="lead" style="margin:var(--sp-4) auto 0; max-width:44ch">
-        Delapan paviliun kriya di kaki Kendeng, dirancang untuk keheningan.</p>
+        Delapan paviliun di kaki Pegunungan Kendeng, Banten.</p>
     </div>
   </section>
 

@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/komponen.css">
-<script>try{if(sessionStorage.getItem('tirai-masuk'))document.documentElement.classList.add('tirai-tertutup')}catch(e){}</script>
+<script>try{var s=sessionStorage;if(s.getItem('tirai-masuk')||!s.getItem('sudah-datang'))document.documentElement.classList.add('tirai-tertutup')}catch(e){}</script>
 </head>
 <body>
 
