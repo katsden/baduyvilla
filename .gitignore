@@ -3,3 +3,7 @@ node_modules/
 Thumbs.db
 *.log
 .vercel/
+
+# PNG mentah dari generator. Yang dipakai situs adalah hasil konversinya
+# di assets/img/ — lihat scripts/siapkan-foto.ps1
+foto/
