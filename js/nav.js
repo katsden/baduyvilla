@@ -73,6 +73,10 @@
     setMenu(tombol.getAttribute('aria-expanded') !== 'true');
   });
 
+  /* Klik bidang gelap di sebelah laci menutup menu. */
+  var scrim = panel.querySelector('[data-menu-tutup]');
+  if (scrim) scrim.addEventListener('click', function () { setMenu(false); });
+
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && tombol.getAttribute('aria-expanded') === 'true') {
       setMenu(false);

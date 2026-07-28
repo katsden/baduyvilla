@@ -104,6 +104,8 @@
   --dur-sedang: 0.8s;   /* reveal teks */
   --dur-pelan:  1.2s;   /* reveal foto besar */
 
+  --dur-laci:    0.6s;   /* laci menu masuk dan keluar */
+
   --tirai-naik:  0.6s;
   --tirai-jeda:  0.15s;  /* jeda sinematik — jangan dihapus */
   --tirai-turun: 0.7s;
@@ -143,6 +145,7 @@
     --dur-cepat:  0.01s;
     --dur-sedang: 0.01s;
     --dur-pelan:  0.01s;
+    --dur-laci:    0.2s;
     --tirai-naik:  0.2s;
     --tirai-jeda:  0s;
     --tirai-turun: 0.2s;

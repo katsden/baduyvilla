@@ -138,48 +138,61 @@
   position: fixed;
   inset: 0;
   z-index: calc(var(--z-nav) - 1);
+  visibility: hidden;
+  transition: visibility var(--dur-laci) var(--ease);
+}
+
+.menu[data-buka='true'] { visibility: visible; }
+
+/* Bidang gelap di belakang laci. Diklik untuk menutup. */
+.menu__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 26, 24, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity var(--dur-laci) var(--ease);
+  cursor: pointer;
+}
+
+.menu[data-buka='true'] .menu__scrim { opacity: 1; }
+
+/* Laci. Masuk dari tepi kanan dalam satu gerakan. */
+.menu__dalam {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(92vw, 460px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  padding: calc(var(--nav-h) + var(--sp-4)) var(--gutter) var(--sp-5);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background-color: var(--nila);
   background-image: var(--tenun);
   background-size: 8px 8px;
-  display: grid;
-  align-items: center;
-  padding: var(--nav-h) 0 var(--sp-5);
-  overflow-y: auto;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--dur-cepat) var(--ease),
-              visibility var(--dur-cepat) var(--ease);
+  border-left: 1px solid var(--kapas-12);
+  transform: translateX(100%);
+  transition: transform var(--dur-laci) var(--ease);
+  will-change: transform;
 }
 
-.menu[data-buka='true'] {
-  opacity: 1;
-  visibility: visible;
-}
-
-.menu__dalam {
-  display: grid;
-  gap: var(--sp-5);
-  width: 100%;
-}
-
-@media (min-width: 900px) {
-  .menu__dalam {
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: var(--sp-7);
-  }
-}
+.menu[data-buka='true'] .menu__dalam { transform: translateX(0); }
 
 .menu__daftar { display: grid; }
 
 .menu__daftar a {
   display: flex;
   align-items: baseline;
-  gap: var(--sp-3);
-  padding-block: clamp(var(--sp-1), 1.4vh, var(--sp-2));
+  gap: var(--sp-2);
+  padding-block: clamp(var(--sp-1), 1.2vh, var(--sp-2));
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  line-height: 1.05;
+  font-size: clamp(1.875rem, 5.5vw, 2.75rem);
+  line-height: 1.1;
   letter-spacing: -0.015em;
   color: var(--kapas);
   min-height: var(--tap);
@@ -203,10 +216,11 @@
 }
 
 /* Reveal berjenjang saat panel dibuka. */
+/* Isi laci menyusul sedikit di belakang lacinya, searah gerak masuk. */
 .menu__daftar a,
 .menu__samping > * {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateX(28px);
   transition: opacity var(--dur-sedang) var(--ease),
               transform var(--dur-sedang) var(--ease),
               color var(--dur-cepat) var(--ease);
@@ -218,17 +232,14 @@
   transform: none;
 }
 
-.menu__daftar a:nth-child(1) { transition-delay: 60ms; }
-.menu__daftar a:nth-child(2) { transition-delay: 120ms; }
-.menu__daftar a:nth-child(3) { transition-delay: 180ms; }
-.menu__daftar a:nth-child(4) { transition-delay: 240ms; }
-.menu__daftar a:nth-child(5) { transition-delay: 300ms; }
-.menu__samping > *           { transition-delay: 360ms; }
+.menu__daftar a:nth-child(1) { transition-delay: 140ms; }
+.menu__daftar a:nth-child(2) { transition-delay: 200ms; }
+.menu__daftar a:nth-child(3) { transition-delay: 260ms; }
+.menu__daftar a:nth-child(4) { transition-delay: 320ms; }
+.menu__daftar a:nth-child(5) { transition-delay: 380ms; }
+.menu__samping > *           { transition-delay: 440ms; }
 
-.menu__samping {
-  max-width: 34ch;
-  align-self: end;
-}
+.menu__samping { max-width: 34ch; }
 
 .menu__pav {
   margin-top: var(--sp-1);
@@ -289,7 +300,13 @@ html.tirai-tertutup .tirai,
 }
 
 /* Gerak dikurangi: tirai tidak digeser, hanya dipudarkan. Perpindahan
-   halaman tetap punya penanda, tapi tanpa gerakan besar di layar. */
+   halaman tetap punya penanda, tapi tanpa gerakan besar di layar.
+
+   Catatan penting: base.css memaksa transition-duration jadi 0.01ms pada
+   SEMUA elemen di bawah prefers-reduced-motion. Tanpa !important di sini,
+   cross-fade ini ikut mati dan tirai berpindah tanpa terlihat sama sekali.
+   Ini satu-satunya tempat di seluruh situs yang boleh melawan reset itu,
+   karena tirai adalah penanda perpindahan halaman — bukan hiasan. */
 @media (prefers-reduced-motion: reduce) {
   .tirai {
     transform: none;
@@ -305,13 +322,15 @@ html.tirai-tertutup .tirai,
   .tirai[data-status='menutup'] {
     transform: none;
     opacity: 1;
-    transition: opacity var(--tirai-naik) linear;
+    transition: opacity var(--tirai-naik) linear !important;
+    transition-duration: var(--tirai-naik) !important;
   }
 
   .tirai[data-status='membuka'] {
     transform: none;
     opacity: 0;
-    transition: opacity var(--tirai-turun) linear;
+    transition: opacity var(--tirai-turun) linear !important;
+    transition-duration: var(--tirai-turun) !important;
   }
 }
 
