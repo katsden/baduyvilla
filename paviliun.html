@@ -11,8 +11,11 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/komponen.css">
+<script>try{if(sessionStorage.getItem('tirai-masuk'))document.documentElement.classList.add('tirai-tertutup')}catch(e){}</script>
 </head>
 <body>
+
+<div class="tirai" data-tirai aria-hidden="true"></div>
 
 <a class="lewati" href="#utama">Lewati ke konten</a>
 
@@ -20,28 +23,37 @@
 <header class="nav" data-nav>
   <div class="nav__dalam wadah">
     <a class="nav__merek" href="index.html">Baduy Villa</a>
-
-    <nav class="nav__tautan" aria-label="Navigasi utama">
-      <a class="tautan" href="paviliun.html">Paviliun</a>
-      <a class="tautan" href="santapan.html">Santapan</a>
-      <a class="tautan" href="pengalaman.html">Pengalaman</a>
-    </nav>
-
     <a class="nav__reservasi" href="reservasi.html">Reservasi</a>
-
     <button class="nav__tombol" type="button"
             data-menu-tombol aria-expanded="false"
             aria-controls="menu-panel" aria-label="Buka menu">
-      <span></span><span></span>
+      <i aria-hidden="true"></i>
     </button>
   </div>
 </header>
 
-<div class="nav__panel" id="menu-panel" data-menu-panel data-buka="false">
-  <a href="paviliun.html">Paviliun</a>
-  <a href="santapan.html">Santapan</a>
-  <a href="pengalaman.html">Pengalaman</a>
-  <a href="reservasi.html">Reservasi</a>
+<div class="menu" id="menu-panel" data-menu-panel data-buka="false">
+  <div class="menu__dalam wadah">
+    <nav class="menu__daftar" aria-label="Navigasi utama">
+      <a href="index.html"><span class="menu__no">01</span>Beranda</a>
+      <a href="paviliun.html"><span class="menu__no">02</span>Paviliun</a>
+      <a href="santapan.html"><span class="menu__no">03</span>Santapan</a>
+      <a href="pengalaman.html"><span class="menu__no">04</span>Pengalaman</a>
+      <a href="reservasi.html"><span class="menu__no">05</span>Reservasi</a>
+    </nav>
+
+    <aside class="menu__samping">
+      <p class="label">Delapan paviliun</p>
+      <p class="menu__pav">Awi &middot; Ijuk &middot; Jati &middot; Tarum<br>
+        Halimun &middot; Cai &middot; Leuweung &middot; Isuk</p>
+      <hr class="garis">
+      <p class="label">Hubungi</p>
+      <p class="menu__pav">
+        <a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a><br>
+        <a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a>
+      </p>
+    </aside>
+  </div>
 </div>
 <!-- ==== /NAV =========================================================== -->
 
@@ -58,9 +70,9 @@
 
       <div class="grid" style="margin-top:var(--sp-5)">
         <div class="kolom-offset">
-          <p>Halaman ini masih kosong. Dipakai sebagai pasangan uji untuk transisi tirai
-            di tahap berikutnya — perhatikan bahwa nav di sini tidak menimpa judul,
-            karena halaman ini tidak punya hero layar penuh.</p>
+          <p>Halaman ini masih kosong. Dipakai sebagai pasangan uji untuk transisi tirai —
+            perhatikan juga bahwa nav di sini tidak menimpa judul, karena halaman ini
+            tidak punya hero layar penuh.</p>
           <p><a class="tautan" href="index.html">Kembali ke beranda</a></p>
         </div>
       </div>
@@ -127,5 +139,6 @@
 <!-- ==== /FOOTER ======================================================== -->
 
 <script src="js/nav.js"></script>
+<script src="js/tirai.js"></script>
 </body>
 </html>

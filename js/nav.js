@@ -16,10 +16,11 @@
 
   var berkas = location.pathname.split('/').pop() || 'index.html';
 
-  nav.querySelectorAll('a[href]').forEach(function (a) {
-    var tujuan = a.getAttribute('href').split('/').pop().split('#')[0];
-    if (tujuan === berkas) a.setAttribute('aria-current', 'page');
-  });
+  document.querySelectorAll('[data-nav] a[href], [data-menu-panel] a[href]')
+    .forEach(function (a) {
+      var tujuan = a.getAttribute('href').split('/').pop().split('#')[0];
+      if (tujuan === berkas) a.setAttribute('aria-current', 'page');
+    });
 
   /* ---- Mengecil saat scroll -------------------------------------------
      Boleh mengecil, tidak boleh hilang. Ambangnya diberi jeda naik-turun
