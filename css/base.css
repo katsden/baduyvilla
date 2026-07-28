@@ -319,6 +319,82 @@ a {
 .media + .caption { margin-top: var(--sp-2); }
 
 /* --------------------------------------------------------------------------
+   6b. Placeholder foto
+   Aktif otomatis selama .media belum berisi <img>. Begitu foto asli masuk,
+   seluruh lapisan di bawah ini tertutup sendiri — tidak ada CSS yang perlu
+   diubah dan tidak ada kelas yang perlu dihapus.
+
+   Tiga lapis: cahaya lembut, butiran film, motif tenun. Tidak ada layanan
+   placeholder eksternal, tidak ada gambar yang diunduh.
+   -------------------------------------------------------------------------- */
+
+:root {
+  --tenun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cg stroke='%23151A18' stroke-width='1'%3E%3Cpath d='M-1 1L1 -1M0 8L8 0M7 9L9 7' opacity='.22'/%3E%3Cpath d='M-1 7L1 9M0 0L8 8M7 -1L9 1' opacity='.10'/%3E%3C/g%3E%3C/svg%3E");
+  --butiran: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.38'/%3E%3C/svg%3E");
+}
+
+.media:not(:has(img)) {
+  background-color: var(--hijau);
+  background-image:
+    radial-gradient(120% 90% at 50% 0%, rgba(242,237,228,.10) 0%, transparent 60%),
+    var(--butiran),
+    var(--tenun);
+  background-size: auto, 140px 140px, 8px 8px;
+  background-blend-mode: normal, soft-light, normal;
+}
+
+/* Arah cahaya dibedakan per rasio supaya deretan placeholder tidak
+   terlihat seperti ubin yang sama persis. */
+.media.r-makro:not(:has(img)) {
+  background-image:
+    radial-gradient(100% 120% at 0% 40%, rgba(242,237,228,.12) 0%, transparent 65%),
+    var(--butiran),
+    var(--tenun);
+}
+
+.media.r-galeri:not(:has(img)) {
+  background-image:
+    radial-gradient(90% 90% at 70% 15%, rgba(242,237,228,.09) 0%, transparent 60%),
+    var(--butiran),
+    var(--tenun);
+}
+
+.media.r-hero:not(:has(img)) {
+  background-image:
+    radial-gradient(80% 70% at 50% 85%, rgba(169,139,98,.14) 0%, transparent 65%),
+    radial-gradient(120% 90% at 50% 0%, rgba(242,237,228,.08) 0%, transparent 55%),
+    var(--butiran),
+    var(--tenun);
+  background-size: auto, auto, 140px 140px, 8px 8px;
+  background-blend-mode: normal, normal, soft-light, normal;
+}
+
+/* Deskripsi foto yang seharusnya ada di slot ini. Diambil dari data-img,
+   jadi keterangannya hidup di HTML — bukan di CSS. */
+.media:not(:has(img))[data-img]::before {
+  content: attr(data-img);
+  position: absolute;
+  left: var(--sp-2);
+  right: var(--sp-2);
+  bottom: var(--sp-2);
+  z-index: 2;
+  padding-left: var(--sp-2);
+  border-left: 1px solid var(--batu);
+  font-family: var(--font-body);
+  font-size: var(--size-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: rgba(242, 237, 228, 0.45);
+}
+
+/* Di slot kecil, keterangannya lebih mengganggu daripada membantu. */
+@media (max-width: 480px) {
+  .media:not(:has(img))[data-img]::before { display: none; }
+}
+
+/* --------------------------------------------------------------------------
    7. Tombol
    Tidak ada efek "pop". Yang berubah hanya isian dan warna.
    -------------------------------------------------------------------------- */
