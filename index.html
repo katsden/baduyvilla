@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baduy Villa — Penginapan kriya di kaki Kendeng</title>
+<meta name="description" content="Delapan paviliun kriya di kaki Pegunungan Kendeng, Banten. Tanpa televisi, tanpa keramaian.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/komponen.css">
+</head>
+<body data-hero>
+
+<a class="lewati" href="#utama">Lewati ke konten</a>
+
+<!-- ==== NAV — blok ini identik di semua halaman ========================= -->
+<header class="nav" data-nav>
+  <div class="nav__dalam wadah">
+    <a class="nav__merek" href="index.html">Baduy Villa</a>
+
+    <nav class="nav__tautan" aria-label="Navigasi utama">
+      <a class="tautan" href="paviliun.html">Paviliun</a>
+      <a class="tautan" href="santapan.html">Santapan</a>
+      <a class="tautan" href="pengalaman.html">Pengalaman</a>
+    </nav>
+
+    <a class="nav__reservasi" href="reservasi.html">Reservasi</a>
+
+    <button class="nav__tombol" type="button"
+            data-menu-tombol aria-expanded="false"
+            aria-controls="menu-panel" aria-label="Buka menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav__panel" id="menu-panel" data-menu-panel data-buka="false">
+  <a href="paviliun.html">Paviliun</a>
+  <a href="santapan.html">Santapan</a>
+  <a href="pengalaman.html">Pengalaman</a>
+  <a href="reservasi.html">Reservasi</a>
+</div>
+<!-- ==== /NAV =========================================================== -->
+
+<main id="utama">
+
+  <!-- Hero. Judulnya menunggu kalimat positioning — belum ditulis. -->
+  <section class="media r-hero" data-scrim="bawah"
+           data-img="Satu paviliun di lereng berhutan, kabut lembah, cahaya pertama"
+           style="display:grid; place-items:center; text-align:center">
+    <div class="wadah" style="position:relative; z-index:3">
+      <h1>Baduy&nbsp;Villa</h1>
+      <p class="label" style="margin-top:var(--sp-3)">Kalimat positioning menyusul</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-offset">
+          <span class="label">Tahap 2</span>
+          <h2>Nav dan footer</h2>
+          <p style="margin-top:var(--sp-2)">Halaman ini sengaja dibiarkan kosong. Isinya menyusul
+            setelah kalimat positioning diputuskan. Untuk sekarang yang diuji hanya dua hal:
+            nav yang mengecil tanpa hilang, dan tautan Reservasi yang tidak pernah bersembunyi.</p>
+          <p><a class="tautan" href="paviliun.html">Pindah ke halaman paviliun</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-section="terang">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-tengah">
+          <span class="label">Jeda</span>
+          <h2>Section terang</h2>
+          <p style="margin-top:var(--sp-2)">Scroll melewati bagian ini dan perhatikan nav —
+            latarnya tetap gelap dan tulisannya tetap terbaca di atas bidang terang.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="min-height:70svh"></section>
+
+</main>
+
+<!-- ==== FOOTER — blok ini identik di semua halaman ====================== -->
+<footer class="footer">
+  <div class="wadah">
+    <div class="footer__atas">
+      <div>
+        <p class="footer__merek">Baduy Villa</p>
+        <p class="footer__kalimat">Delapan paviliun di kaki Pegunungan Kendeng, Banten.
+          Tanpa televisi, tanpa keramaian.</p>
+      </div>
+
+      <div class="footer__kolom">
+        <div>
+          <h3>Jelajah</h3>
+          <ul role="list">
+            <li><a class="tautan" href="paviliun.html">Paviliun</a></li>
+            <li><a class="tautan" href="santapan.html">Santapan</a></li>
+            <li><a class="tautan" href="pengalaman.html">Pengalaman</a></li>
+            <li><a class="tautan" href="reservasi.html">Reservasi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hubungi</h3>
+          <ul role="list">
+            <li><a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a></li>
+            <li><a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bawah">
+      <span>&copy; 2026 Baduy Villa</span>
+      <span>Situs fiktif, dibuat sebagai karya rancang.</span>
+    </div>
+  </div>
+</footer>
+<!-- ==== /FOOTER ======================================================== -->
+
+<script src="js/nav.js"></script>
+</body>
+</html>

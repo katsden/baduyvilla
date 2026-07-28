@@ -1,0 +1,253 @@
+/* ==========================================================================
+   komponen.css — Baduy Villa
+   Komponen yang dipakai ulang di semua halaman. Markup dan class-nya tetap,
+   jadi halaman baru cukup menyalin blok HTML-nya tanpa menulis CSS baru.
+   Butuh tokens.css dan base.css dimuat lebih dulu.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   NAV
+   Tetap terlihat setelah scroll. Mengecil dari 88px ke 64px, tidak pernah hilang.
+   Tautan Reservasi hidup permanen — di semua halaman, di semua ukuran layar,
+   tidak pernah bersembunyi di balik hamburger.
+   -------------------------------------------------------------------------- */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  height: var(--nav-h);
+  color: var(--kapas);
+  transition: height var(--dur-cepat) var(--ease),
+              background-color var(--dur-cepat) var(--ease),
+              border-color var(--dur-cepat) var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+/* Di atas foto hero nav duduk tanpa latar. Keterbacaan dijaga oleh scrim
+   foto, bukan oleh keberuntungan warna. */
+.nav__dalam {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  height: 100%;
+}
+
+.nav--kecil {
+  height: var(--nav-h-kecil);
+  background-color: rgba(21, 26, 24, 0.88);
+  border-bottom-color: var(--kapas-12);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+}
+
+/* Merek. Bodoni, dijarangkan sedikit — elegan tapi tegas. */
+.nav__merek {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+}
+
+.nav--kecil .nav__merek { font-size: 1rem; }
+
+/* Daftar tautan tengah. Di mobile pindah ke panel. */
+.nav__tautan {
+  display: none;
+  gap: var(--sp-4);
+}
+
+.nav__tautan a {
+  font-size: var(--size-small);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+}
+
+/* Reservasi. Garis bawahnya permanen supaya terbaca sebagai tujuan, bukan
+   sebagai tombol — jatah --rotan disimpan untuk ajakan di dalam halaman. */
+.nav__reservasi {
+  font-size: var(--size-small);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding-inline: var(--sp-1);
+  position: relative;
+}
+
+.nav__reservasi::after {
+  content: '';
+  position: absolute;
+  left: var(--sp-1);
+  right: var(--sp-1);
+  bottom: calc(50% - 0.95em);
+  height: 1px;
+  background: var(--batu);
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: background var(--dur-cepat) var(--ease);
+}
+
+.nav__reservasi:hover::after,
+.nav__reservasi:focus-visible::after { background: var(--kapas); }
+
+/* Tombol menu. Dua garis, tanpa ikon jadi, tanpa emoji. */
+.nav__tombol {
+  width: var(--tap);
+  height: var(--tap);
+  display: grid;
+  place-items: center;
+  margin-right: calc(var(--sp-1) * -1);
+}
+
+.nav__tombol span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--dur-cepat) var(--ease),
+              opacity var(--dur-cepat) var(--ease);
+}
+
+.nav__tombol span:first-child { transform: translateY(-3px); }
+.nav__tombol span:last-child  { transform: translateY(3px); }
+
+.nav__tombol[aria-expanded='true'] span:first-child { transform: rotate(45deg); }
+.nav__tombol[aria-expanded='true'] span:last-child  { transform: rotate(-45deg); }
+
+/* Panel menu mobile. Menutup penuh, tenang, tanpa metafora navigasi. */
+.nav__panel {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-nav) - 1);
+  background: var(--nila);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-7) var(--gutter) var(--sp-6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-cepat) var(--ease),
+              visibility var(--dur-cepat) var(--ease);
+}
+
+.nav__panel[data-buka='true'] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav__panel a {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 9vw, 3rem);
+  line-height: 1.15;
+  color: var(--kapas);
+  min-height: var(--tap);
+}
+
+.nav__panel a[aria-current='page'] { color: var(--batu); }
+
+@media (min-width: 768px) {
+  .nav__tautan { display: flex; }
+  .nav__tombol { display: none; }
+  .nav__panel  { display: none; }
+}
+
+/* Halaman tanpa hero layar penuh perlu ruang supaya nav tidak menimpa judul. */
+body:not([data-hero]) main { padding-top: var(--nav-h); }
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+
+.footer {
+  background: var(--nila);
+  color: var(--kapas);
+  border-top: 1px solid var(--kapas-12);
+  padding-block: var(--sp-6) var(--sp-4);
+}
+
+.footer__atas {
+  display: grid;
+  gap: var(--sp-5);
+}
+
+@media (min-width: 768px) {
+  .footer__atas {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: var(--sp-7);
+  }
+}
+
+.footer__merek {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.footer__kalimat {
+  margin-top: var(--sp-2);
+  max-width: 34ch;
+  color: var(--kapas-56);
+  font-size: var(--size-small);
+  line-height: 1.6;
+}
+
+.footer__kolom {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4) var(--sp-5);
+}
+
+.footer__kolom h3 {
+  font-family: var(--font-body);
+  font-size: var(--size-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--batu);
+  margin-bottom: var(--sp-2);
+}
+
+.footer__kolom ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-1);
+}
+
+.footer__kolom a {
+  font-size: var(--size-small);
+  color: var(--kapas-80);
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+}
+
+.footer__kolom a:hover { color: var(--kapas); }
+
+.footer__bawah {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--kapas-12);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-3);
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--kapas-56);
+}
