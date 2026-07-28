@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leuweung — Paviliun Baduy Villa</title>
+<meta name="description" content="Paling jauh dari jalan setapak utama. Dari luar yang terlihat cuma garis atap dan satu pintu yang menyala.">
+<meta property="og:title" content="Leuweung — Paviliun Baduy Villa">
+<meta property="og:description" content="Paling jauh dari jalan setapak utama. Dari luar yang terlihat cuma garis atap dan satu pintu yang menyala.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/komponen.css">
+<script>try{var s=sessionStorage;if(s.getItem('tirai-masuk')||!s.getItem('sudah-datang'))document.documentElement.classList.add('tirai-tertutup')}catch(e){}</script>
+</head>
+<body data-hero>
+
+<div class="tirai" data-tirai aria-hidden="true"></div>
+
+<a class="lewati" href="#utama">Lewati ke konten</a>
+
+<!-- ==== NAV — blok ini identik di semua halaman ========================= -->
+<header class="nav" data-nav>
+  <div class="nav__dalam wadah">
+    <a class="nav__merek" href="index.html">Baduy Villa</a>
+    <a class="nav__reservasi" href="reservasi.html">Reservasi</a>
+    <button class="nav__tombol" type="button"
+            data-menu-tombol aria-expanded="false"
+            aria-controls="menu-panel" aria-label="Buka menu">
+      <i aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu-panel" data-menu-panel data-buka="false">
+  <div class="menu__scrim" data-menu-tutup aria-hidden="true"></div>
+  <div class="menu__dalam">
+    <nav class="menu__daftar" aria-label="Navigasi utama">
+      <a href="index.html"><span class="menu__no">01</span>Beranda</a>
+      <a href="paviliun.html"><span class="menu__no">02</span>Paviliun</a>
+      <a href="santapan.html"><span class="menu__no">03</span>Santapan</a>
+      <a href="pengalaman.html"><span class="menu__no">04</span>Pengalaman</a>
+      <a href="reservasi.html"><span class="menu__no">05</span>Reservasi</a>
+    </nav>
+
+    <aside class="menu__samping">
+      <p class="label">Delapan paviliun</p>
+      <p class="menu__pav">Awi &middot; Ijuk &middot; Jati &middot; Tarum<br>
+        Halimun &middot; Cai &middot; Leuweung &middot; Isuk</p>
+      <hr class="garis">
+      <p class="label">Hubungi</p>
+      <p class="menu__pav">
+        <a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a><br>
+        <a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a>
+      </p>
+    </aside>
+  </div>
+</div>
+<!-- ==== /NAV =========================================================== -->
+
+<main id="utama">
+
+  <!-- Hero paviliun -->
+  <section class="media r-hero" data-scrim="bawah" data-parallax
+           data-img="Paviliun hampir tertelan hutan, hanya garis atap dan satu pintu menyala terlihat di antara batang pohon."
+           style="display:grid; place-items:end start; text-align:left">
+    <div class="wadah" style="position:relative; z-index:3; padding-bottom:var(--sp-5)">
+      <span class="label">Hutan &middot; 4 tamu</span>
+      <h1 style="margin-top:var(--sp-2)">Leuweung</h1>
+      <p class="caption" style="margin-top:var(--sp-2)">Leuweung, dari bahasa Sunda: hutan.</p>
+    </div>
+  </section>
+
+  <!-- Ringkas dan angka -->
+  <section class="section">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-offset" data-reveal-grup>
+          <p class="lead" data-reveal>Paling jauh dari jalan setapak utama. Dari luar yang terlihat cuma garis atap dan satu pintu yang menyala.</p>
+          <p data-reveal style="margin-top:var(--sp-3)">Ditutup kanopi, jadi tidak pernah kena matahari langsung. Terangnya hijau, dan rata sepanjang hari.</p>
+        </div>
+      </div>
+
+      <dl class="angka" data-reveal-grup style="margin-top:var(--sp-5)">
+        <div data-reveal><dt class="label">Luas</dt><dd class="tabular">64 m&sup2;</dd></div>
+        <div data-reveal><dt class="label">Tamu</dt><dd class="tabular">4 orang</dd></div>
+        <div data-reveal><dt class="label">Menghadap</dt><dd>Hutan</dd></div>
+        <div data-reveal><dt class="label">Tarif</dt><dd class="tabular">mulai Rp 3.400.000 / malam</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Apa yang terdengar dari dalam -->
+  <section class="section" data-section="terang">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-tengah" data-reveal-grup>
+          <span class="label" data-reveal>Dari dalam kamar</span>
+          <h2 data-reveal style="margin-top:var(--sp-2)">Serangga malam yang berhenti serentak kalau ada yang lewat.</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Denah -->
+  <section class="section">
+    <div class="wadah">
+      <div class="asimetris">
+        <div data-reveal-grup>
+          <span class="label" data-reveal>Denah</span>
+          <h2 data-reveal style="margin-top:var(--sp-2)">Tipe Julang</h2>
+          <p data-reveal style="margin-top:var(--sp-3); max-width:44ch">Dua ruang tidur mengapit ruang tengah terbuka. Panah menunjukkan arah matahari pagi, karena itu yang menentukan letak bukaannya.</p>
+        </div>
+
+        <figure class="denah" data-reveal>
+          <svg viewBox="0 0 400 280" role="img" aria-label="Denah tipe Julang: dua ruang tidur mengapit ruang tengah terbuka"><g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"><rect x="40" y="60" width="130" height="160"/><rect x="230" y="60" width="130" height="160"/><path d="M170 60 h60 M170 220 h60"/><path d="M170 96 v88" stroke-dasharray="4 6"/><path d="M230 96 v88" stroke-dasharray="4 6"/><rect x="62" y="86" width="66" height="48"/><rect x="252" y="86" width="66" height="48"/><path d="M170 220 v26 M230 220 v26"/></g><g fill="currentColor" opacity=".65"><path d="M372 132 l14 8 -14 8 z"/></g><g fill="currentColor" opacity=".55" font-size="11" font-family="Archivo, sans-serif" letter-spacing="1.6"><text x="70" y="78">TIDUR</text><text x="260" y="78">TIDUR</text><text x="176" y="152">TENGAH</text><text x="322" y="118">PAGI</text></g></svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bahan -->
+  <section class="section">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-kiri" data-reveal-grup>
+          <span class="label" data-reveal>Bahan</span>
+          <h2 data-reveal style="margin-top:var(--sp-2)">Yang dipakai di sini</h2>
+        </div>
+      </div>
+
+      <div class="bahan" data-reveal-grup style="margin-top:var(--sp-5)">
+        <figure data-reveal>
+          <div class="media r-makro" data-img="Bambu belah diikat tali ijuk hitam, terlihat sangat dekat."></div>
+          <p class="bahan__nama">Bambu</p>
+          <p class="bahan__teks">Ditebang saat bulan tua supaya tidak dimakan kumbang. Dibelah, direndam, lalu dianyam di tempat.</p>
+        </figure>
+        <figure data-reveal>
+          <div class="media r-makro" data-img="Tepi atap ijuk dilihat dari bawah, setetes air di ujung serat."></div>
+          <p class="bahan__nama">Atap ijuk</p>
+          <p class="bahan__teks">Serat aren, dipasang berlapis-lapis. Menahan panas, dan mengubah hujan jadi suara yang rata.</p>
+        </figure>
+        <figure data-reveal>
+          <div class="media r-makro" data-img="Lantai tanah padat yang tersapu rata, bertemu dasar dinding bambu."></div>
+          <p class="bahan__nama">Lantai tanah padat</p>
+          <p class="bahan__teks">Tanah setempat ditumbuk sampai keras, disapu tiap pagi. Dingin di telapak kaki sepanjang hari.</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeri: geser dengan jari, tanpa pustaka carousel -->
+  <section class="section">
+    <div class="wadah">
+      <span class="label" data-reveal>Galeri</span>
+    </div>
+    <div class="galeri" data-reveal>
+      <div class="media r-galeri" data-img="Leuweung — sudut ruang saat pagi"></div>
+      <div class="media r-galeri" data-img="Leuweung — bukaan menghadap hutan"></div>
+      <div class="media r-galeri" data-img="Leuweung — detail sambungan bambu dan kayu"></div>
+      <div class="media r-galeri" data-img="Leuweung — teras menjelang malam"></div>
+    </div>
+    <div class="wadah">
+      <p class="caption" style="margin-top:var(--sp-2)">Geser untuk melihat selebihnya.</p>
+    </div>
+  </section>
+
+  <!-- Pindah paviliun dan ajakan -->
+  <section class="section">
+    <div class="wadah">
+      <hr class="garis">
+      <div class="lanjut">
+        <a class="tautan" href="paviliun-cai.html">&larr; Cai</a>
+        <a class="tautan" href="paviliun.html">Semua paviliun</a>
+        <a class="tautan" href="paviliun-isuk.html">Isuk &rarr;</a>
+      </div>
+
+      <p style="margin-top:var(--sp-5)" data-reveal>
+        <a class="tombol tombol--rotan" href="reservasi.html">Tanya ketersediaan Leuweung</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==== FOOTER — blok ini identik di semua halaman ====================== -->
+<footer class="footer">
+  <div class="wadah">
+    <div class="footer__atas">
+      <div>
+        <p class="footer__merek">Baduy Villa</p>
+        <p class="footer__kalimat">Delapan paviliun di kaki Pegunungan Kendeng, Banten.
+          Menginap menurut adat.</p>
+      </div>
+
+      <div class="footer__kolom">
+        <div>
+          <h3>Jelajah</h3>
+          <ul role="list">
+            <li><a class="tautan" href="paviliun.html">Paviliun</a></li>
+            <li><a class="tautan" href="santapan.html">Santapan</a></li>
+            <li><a class="tautan" href="pengalaman.html">Pengalaman</a></li>
+            <li><a class="tautan" href="reservasi.html">Reservasi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hubungi</h3>
+          <ul role="list">
+            <li><a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a></li>
+            <li><a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bawah">
+      <span>&copy; 2026 Baduy Villa</span>
+      <span>Situs fiktif, dibuat sebagai karya rancang.</span>
+    </div>
+  </div>
+</footer>
+<!-- ==== /FOOTER ======================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/tirai.js"></script>
+<script src="js/gerak.js"></script>
+
+</body>
+</html>

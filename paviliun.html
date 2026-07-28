@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Paviliun — Baduy Villa</title>
-<meta name="description" content="Delapan paviliun kriya, masing-masing dengan orientasi dan bahan yang berbeda.">
+<meta name="description" content="Delapan paviliun di kaki Pegunungan Kendeng. Masing-masing menghadap arah yang berbeda.">
+<meta property="og:title" content="Paviliun — Baduy Villa">
+<meta property="og:description" content="Delapan paviliun di kaki Pegunungan Kendeng. Masing-masing menghadap arah yang berbeda.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
@@ -63,38 +66,129 @@
   <section class="section">
     <div class="wadah">
       <div class="grid">
-        <div class="kolom-kiri">
-          <span class="label">Delapan paviliun</span>
-          <h1>Paviliun</h1>
+        <div class="kolom-kiri" data-reveal-grup>
+          <span class="label" data-reveal>Delapan paviliun</span>
+          <h1 data-reveal style="margin-top:var(--sp-2)">Paviliun</h1>
         </div>
       </div>
 
-      <div class="grid" style="margin-top:var(--sp-5)">
-        <div class="kolom-offset">
-          <p>Halaman ini masih kosong. Dipakai sebagai pasangan uji untuk transisi tirai —
-            perhatikan juga bahwa nav di sini tidak menimpa judul, karena halaman ini
-            tidak punya hero layar penuh.</p>
-          <p><a class="tautan" href="index.html">Kembali ke beranda</a></p>
+      <div class="grid" style="margin-top:var(--sp-4)">
+        <div class="kolom-offset" data-reveal>
+          <p>Tidak ada dua yang sama. Yang membedakan bukan ukurannya, tapi arah
+            bukaannya dan apa yang terdengar dari dalam.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="wadah">
-      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-        <figure>
-          <div class="media r-kartu" data-img="Paviliun Awi — dinding bambu, bukaan ke hutan"></div>
-          <figcaption class="caption">Awi &middot; Hutan</figcaption>
-        </figure>
-        <figure>
-          <div class="media r-kartu" data-img="Paviliun Halimun — kabut menutup lembah"></div>
-          <figcaption class="caption">Halimun &middot; Lembah</figcaption>
-        </figure>
-        <figure>
-          <div class="media r-kartu" data-img="Paviliun Cai — panggung di atas sungai berbatu"></div>
-          <figcaption class="caption">Cai &middot; Sungai</figcaption>
-        </figure>
+      <!-- Saring. Tanpa JS, seluruh kartu tetap tampil. -->
+      <form class="saring" data-saring aria-label="Saring paviliun" style="margin-top:var(--sp-5)">
+        <button class="saring__pemicu" type="button" data-saring-buka>
+          Saring <span class="saring__jumlah" data-saring-jumlah>8</span>
+        </button>
+
+        <div class="saring__isi" data-saring-isi>
+          <fieldset class="saring__grup">
+            <legend class="label">Jumlah tamu</legend>
+            <label><input type="radio" name="tamu" value="semua" checked> Semua</label>
+            <label><input type="radio" name="tamu" value="2"> 2 tamu</label>
+            <label><input type="radio" name="tamu" value="4"> 4 tamu</label>
+          </fieldset>
+
+          <fieldset class="saring__grup">
+            <legend class="label">Pemandangan</legend>
+            <label><input type="radio" name="orientasi" value="semua" checked> Semua</label>
+            <label><input type="radio" name="orientasi" value="Lembah"> Lembah</label>
+            <label><input type="radio" name="orientasi" value="Hutan"> Hutan</label>
+            <label><input type="radio" name="orientasi" value="Sungai"> Sungai</label>
+          </fieldset>
+
+          <button class="saring__tutup" type="button" data-saring-tutup>Tutup</button>
+        </div>
+      </form>
+
+      <p class="caption" data-saring-kosong hidden style="margin-top:var(--sp-4)">
+        Tidak ada paviliun dengan gabungan itu. Coba longgarkan salah satu saringan.</p>
+
+      <div class="kartu-daftar" data-saring-daftar data-reveal-grup style="margin-top:var(--sp-4)">
+        <a class="kartu" href="paviliun-awi.html" data-reveal
+           data-tamu="2" data-orientasi="Hutan">
+          <div class="media r-kartu" data-img="Kamar berdinding bambu dengan satu tempat tidur rendah dan bukaan persegi menghadap hutan."></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Awi</span>
+            <span class="kartu__arah">Hutan</span>
+          </div>
+          <p class="kartu__teks">Dinding anyaman bambu di keempat sisi, satu bukaan menghadap rumpun yang lebih tua dari bangunannya.</p>
+          <p class="kartu__harga tabular">42 m&sup2; &middot; 2 tamu &middot; mulai Rp 2.400.000 / malam</p>
+        </a>
+        <a class="kartu" href="paviliun-ijuk.html" data-reveal
+           data-tamu="2" data-orientasi="Hutan">
+          <div class="media r-kartu" data-img="Paviliun kecil dilihat dari bawah, atap ijuk tebal mendominasi, kanopi hutan di kedua sisi."></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Ijuk</span>
+            <span class="kartu__arah">Hutan</span>
+          </div>
+          <p class="kartu__teks">Paviliun terkecil. Atapnya turun sangat rendah di dua sisi, jadi dari dalam yang terlihat cuma tanah dan batang pohon.</p>
+          <p class="kartu__harga tabular">38 m&sup2; &middot; 2 tamu &middot; mulai Rp 2.200.000 / malam</p>
+        </a>
+        <a class="kartu" href="paviliun-jati.html" data-reveal
+           data-tamu="4" data-orientasi="Lembah">
+          <div class="media r-kartu" data-img="Sudut ruang dengan tiang jati bekas yang berat dan bukaan lebar menghadap lembah berkabut."></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Jati</span>
+            <span class="kartu__arah">Lembah</span>
+          </div>
+          <p class="kartu__teks">Tiang-tiangnya diambil dari satu rumah tua yang dibongkar di kampung sebelah. Umurnya lebih dari seabad.</p>
+          <p class="kartu__harga tabular">68 m&sup2; &middot; 4 tamu &middot; mulai Rp 3.600.000 / malam</p>
+        </a>
+        <a class="kartu" href="paviliun-tarum.html" data-reveal
+           data-tamu="2" data-orientasi="Lembah">
+          <div class="media r-kartu" data-img="Ruang dengan kain nila tergantung sebagai penyekat, cahaya menembus anyaman benangnya."></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Tarum</span>
+            <span class="kartu__arah">Lembah</span>
+          </div>
+          <p class="kartu__teks">Pembatas ruangnya kain nila yang ditenun di sini. Kalau angin naik dari lembah, seluruh dinding bergerak.</p>
+          <p class="kartu__harga tabular">45 m&sup2; &middot; 2 tamu &middot; mulai Rp 2.600.000 / malam</p>
+        </a>
+        <a class="kartu" href="paviliun-halimun.html" data-reveal
+           data-tamu="2" data-orientasi="Lembah">
+          <div class="media r-kartu" data-img="Pagar teras bambu gelap dengan kabut tebal menghapus segalanya lebih dari dua meter."></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Halimun</span>
+            <span class="kartu__arah">Lembah</span>
+          </div>
+          <p class="kartu__teks">Berdiri paling tinggi di antara delapan. Sampai pukul sembilan pagi, yang terlihat dari terasnya cuma putih.</p>
+          <p class="kartu__harga tabular">52 m&sup2; &middot; 2 tamu &middot; mulai Rp 3.200.000 / malam</p>
+        </a>
+        <a class="kartu" href="paviliun-cai.html" data-reveal
+           data-tamu="2" data-orientasi="Sungai">
+          <div class="media r-kartu" data-img="Paviliun panggung di atas sungai dangkal berbatu, air berlumut di sekelilingnya."></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Cai</span>
+            <span class="kartu__arah">Sungai</span>
+          </div>
+          <p class="kartu__teks">Dibangun di atas tiang, sejengkal di atas air. Geladaknya menjorok sampai ke tengah aliran.</p>
+          <p class="kartu__harga tabular">40 m&sup2; &middot; 2 tamu &middot; mulai Rp 2.800.000 / malam</p>
+        </a>
+        <a class="kartu" href="paviliun-leuweung.html" data-reveal
+           data-tamu="4" data-orientasi="Hutan">
+          <div class="media r-kartu" data-img="Paviliun hampir tertelan hutan, hanya garis atap dan satu pintu menyala terlihat di antara batang pohon."></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Leuweung</span>
+            <span class="kartu__arah">Hutan</span>
+          </div>
+          <p class="kartu__teks">Paling jauh dari jalan setapak utama. Dari luar yang terlihat cuma garis atap dan satu pintu yang menyala.</p>
+          <p class="kartu__harga tabular">64 m&sup2; &middot; 4 tamu &middot; mulai Rp 3.400.000 / malam</p>
+        </a>
+        <a class="kartu" href="paviliun-isuk.html" data-reveal
+           data-tamu="2" data-orientasi="Sungai">
+          <div class="media r-kartu" data-img="Ruang menghadap timur saat matahari terbit, satu bidang cahaya tajam melintasi lantai tanah padat."></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Isuk</span>
+            <span class="kartu__arah">Sungai</span>
+          </div>
+          <p class="kartu__teks">Satu-satunya yang dindingnya dibuka penuh ke timur. Dinamai begitu karena tidak ada alasan lain untuk memilihnya.</p>
+          <p class="kartu__harga tabular">44 m&sup2; &middot; 2 tamu &middot; mulai Rp 2.900.000 / malam</p>
+        </a>
       </div>
     </div>
   </section>
@@ -108,7 +202,7 @@
       <div>
         <p class="footer__merek">Baduy Villa</p>
         <p class="footer__kalimat">Delapan paviliun di kaki Pegunungan Kendeng, Banten.
-          Tanpa televisi, tanpa keramaian.</p>
+          Menginap menurut adat.</p>
       </div>
 
       <div class="footer__kolom">
@@ -139,7 +233,13 @@
 </footer>
 <!-- ==== /FOOTER ======================================================== -->
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/tirai.js"></script>
+<script src="js/gerak.js"></script>
+<script src="data/paviliun.js"></script>
+<script src="js/saring.js"></script>
 </body>
 </html>
