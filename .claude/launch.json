@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "baduyvilla",
-      "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "4173"],
-      "port": 4173
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/server.js"],
+      "port": 4173,
+      "autoPort": true
     }
   ]
 }
