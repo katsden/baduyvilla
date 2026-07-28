@@ -376,6 +376,145 @@ html.tirai-sibuk .nav,
 html.tirai-sibuk .footer { pointer-events: none; }
 
 /* --------------------------------------------------------------------------
+   FOTO ASIMETRIS
+   Keluar dari grid di satu sisi. Dipakai maksimal sekali per halaman —
+   kalau dua, keasimetrisannya jadi pola, dan berhenti terasa disengaja.
+   -------------------------------------------------------------------------- */
+
+.asimetris { display: grid; }
+
+@media (min-width: 1024px) {
+  .asimetris {
+    grid-template-columns: 1fr minmax(0, 620px);
+    align-items: end;
+    gap: var(--sp-5);
+  }
+
+  /* Melewati tepi kanan wadah, tanpa membuat halaman bisa digeser. */
+  .asimetris__media {
+    margin-right: calc(var(--gutter) * -3);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   DAFTAR BAHAN
+   Bukti kriya yang dijual situs ini. Foto makro 4:5, satu bahan satu kolom.
+   -------------------------------------------------------------------------- */
+
+.bahan {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--sp-4) var(--gutter);
+}
+
+.bahan__nama {
+  margin-top: var(--sp-2);
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+.bahan__teks {
+  margin-top: var(--sp-1);
+  font-size: var(--size-small);
+  line-height: 1.65;
+  color: var(--fg-faint);
+}
+
+/* --------------------------------------------------------------------------
+   KARTU PAVILIUN
+   Full-width di mobile, dua kolom di desktop.
+   -------------------------------------------------------------------------- */
+
+.kartu-daftar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-5) var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .kartu-daftar { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .kartu-daftar--tiga { grid-template-columns: repeat(3, 1fr); }
+}
+
+.kartu { display: block; }
+
+.kartu__kepala {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+  padding-bottom: var(--sp-1);
+  border-bottom: 1px solid var(--rule);
+}
+
+.kartu__nama {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1.1;
+  color: var(--fg);
+}
+
+.kartu__arah {
+  font-size: var(--size-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--batu);
+  white-space: nowrap;
+}
+
+.kartu__teks {
+  margin-top: var(--sp-2);
+  font-size: var(--size-small);
+  line-height: 1.65;
+  color: var(--fg-muted);
+}
+
+.kartu__harga {
+  margin-top: var(--sp-2);
+  font-size: var(--size-small);
+  color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fotonya sedikit membesar saat kartu disentuh. Kartu adalah titik
+   keputusan, jadi gerakan di sini dibolehkan. */
+.kartu .media > * ,
+.kartu .media {
+  transition: transform var(--dur-pelan) var(--ease);
+}
+
+.kartu:hover .media,
+.kartu:focus-visible .media { transform: scale(1.015); }
+
+/* --------------------------------------------------------------------------
+   DUA BLOK BERSEBELAHAN
+   -------------------------------------------------------------------------- */
+
+.duo {
+  display: grid;
+  gap: var(--sp-6) var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .duo { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5) var(--sp-5); }
+}
+
+.duo__judul {
+  margin-top: var(--sp-3);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  color: var(--fg);
+}
+
+/* --------------------------------------------------------------------------
    FOOTER
    -------------------------------------------------------------------------- */
 

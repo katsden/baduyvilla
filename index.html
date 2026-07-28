@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Baduy Villa — Penginapan kriya di kaki Kendeng</title>
-<meta name="description" content="Delapan paviliun kriya di kaki Pegunungan Kendeng, Banten. Tanpa televisi, tanpa keramaian.">
+<title>Baduy Villa — Menginap menurut adat</title>
+<meta name="description" content="Delapan paviliun di kaki Pegunungan Kendeng, Banten. Dibangun menurut aturan yang sudah lama berlaku di sini.">
+<meta property="og:title" content="Baduy Villa — Menginap menurut adat">
+<meta property="og:description" content="Delapan paviliun di kaki Pegunungan Kendeng, Banten.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
@@ -63,8 +66,8 @@
 
 <main id="utama">
 
-  <!-- Hero. Judulnya menunggu kalimat positioning — belum ditulis. -->
-  <section class="media r-hero" data-scrim="bawah"
+  <!-- 1 · Hero — foto penuh layar ---------------------------------------- -->
+  <section class="media r-hero" data-scrim="bawah" data-parallax
            data-img="Satu paviliun di lereng berhutan, kabut lembah, cahaya pertama"
            style="display:grid; place-items:center; text-align:center">
     <div class="wadah" style="position:relative; z-index:3">
@@ -74,35 +77,196 @@
     </div>
   </section>
 
+  <!-- 2 · Pembuka — teks sempit, geser ke kolom 7–11 ---------------------- -->
   <section class="section">
     <div class="wadah">
       <div class="grid">
-        <div class="kolom-offset">
-          <span class="label">Tahap 3</span>
-          <h2>Transisi tirai</h2>
-          <p style="margin-top:var(--sp-2)">Klik tautan mana pun — panel bermotif tenun naik
-            menutup layar, diam sebentar, lalu turun lagi di halaman berikutnya.
-            Motifnya sama persis dengan tekstur placeholder foto.</p>
-          <p><a class="tautan" href="paviliun.html">Pindah ke halaman paviliun</a></p>
+        <div class="kolom-offset" data-reveal-grup>
+          <span class="label" data-reveal>Kaki Kendeng</span>
+          <h2 data-reveal style="margin-top:var(--sp-2)">Jauh dari jalan besar</h2>
+          <p data-reveal style="margin-top:var(--sp-3)">Delapan paviliun berdiri di lereng
+            yang menghadap timur. Tidak ada televisi di dalam kamar, tidak ada musik di
+            jalan setapak. Yang terdengar hutan, dan sesekali alu dari arah dapur.</p>
+          <p data-reveal>Rumahnya dibangun menurut aturan yang sudah lama berlaku di sini.
+            Bahan diambil dari dekat, atap dipasang tanpa paku, arah bangunan ditentukan
+            oleh matahari pagi.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 3 · Tempat — foto keluar grid di satu sisi -------------------------- -->
+  <section class="section">
+    <div class="wadah">
+      <div class="asimetris">
+        <div data-reveal-grup>
+          <span class="label" data-reveal>Jalan masuk</span>
+          <h2 data-reveal style="margin-top:var(--sp-2)">Dua puluh menit<br>berjalan kaki</h2>
+          <p data-reveal style="margin-top:var(--sp-3); max-width:46ch">Kendaraan berhenti
+            di ujung kampung. Sisanya jalan setapak, menanjak pelan melewati kebun dan
+            rumpun bambu. Tas dibawakan, langkah tidak.</p>
+        </div>
+
+        <figure class="asimetris__media" data-reveal>
+          <div class="media r-hero" data-parallax
+               data-img="Jalan setapak batu dan tanah di antara bambu, basah sehabis hujan"></div>
+          <figcaption class="caption">Jalan masuk, pagi setelah hujan.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Kriya — lima bahan, foto makro ---------------------------------- -->
+  <section class="section">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-kiri" data-reveal-grup>
+          <span class="label" data-reveal>Bahan</span>
+          <h2 data-reveal style="margin-top:var(--sp-2)">Lima bahan,<br>semuanya dari dekat</h2>
+        </div>
+      </div>
+
+      <div class="bahan" data-reveal-grup style="margin-top:var(--sp-5)">
+        <figure data-reveal>
+          <div class="media r-makro" data-img="Bambu belah diikat tali ijuk, dari sangat dekat"></div>
+          <p class="bahan__nama">Bambu</p>
+          <p class="bahan__teks">Ditebang saat bulan tua supaya tidak dimakan kumbang.
+            Dibelah, direndam, lalu dianyam di tempat.</p>
+        </figure>
+
+        <figure data-reveal>
+          <div class="media r-makro" data-img="Balok jati bekas, lubang paku dan bekas gergaji"></div>
+          <p class="bahan__nama">Kayu jati bekas</p>
+          <p class="bahan__teks">Diambil dari rumah lama yang dibongkar. Lubang paku dan
+            bekas gergajinya dibiarkan terlihat.</p>
+        </figure>
+
+        <figure data-reveal>
+          <div class="media r-makro" data-img="Tepi atap ijuk dari bawah, setetes air di ujung serat"></div>
+          <p class="bahan__nama">Atap ijuk</p>
+          <p class="bahan__teks">Serat aren, dipasang berlapis-lapis. Menahan panas, dan
+            mengubah hujan jadi suara yang rata.</p>
+        </figure>
+
+        <figure data-reveal>
+          <div class="media r-makro" data-img="Lantai tanah padat yang disapu, bertemu dinding bambu"></div>
+          <p class="bahan__nama">Lantai tanah padat</p>
+          <p class="bahan__teks">Tanah setempat ditumbuk sampai keras, disapu tiap pagi.
+            Dingin di telapak kaki sepanjang hari.</p>
+        </figure>
+
+        <figure data-reveal>
+          <div class="media r-makro" data-img="Kain tenun nila di alat tenun, benang tidak rata"></div>
+          <p class="bahan__nama">Tenun nila</p>
+          <p class="bahan__teks">Diwarnai daun tarum. Warnanya turun sedikit tiap tahun,
+            dan memang begitu seharusnya.</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Paviliun — tiga kartu ------------------------------------------- -->
+  <section class="section">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-kiri" data-reveal-grup>
+          <span class="label" data-reveal>Delapan paviliun</span>
+          <h2 data-reveal style="margin-top:var(--sp-2)">Masing-masing menghadap<br>arah yang berbeda</h2>
+        </div>
+      </div>
+
+      <div class="kartu-daftar kartu-daftar--tiga" data-reveal-grup style="margin-top:var(--sp-5)">
+        <a class="kartu" href="paviliun.html" data-reveal>
+          <div class="media r-kartu" data-img="Paviliun Awi — dinding bambu, bukaan tunggal ke hutan"></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Awi</span>
+            <span class="kartu__arah">Hutan</span>
+          </div>
+          <p class="kartu__teks">Dinding anyaman bambu di keempat sisi. Yang terdengar dari
+            dalam: daun jatuh di atap, sepanjang malam.</p>
+          <p class="kartu__harga">Mulai Rp 2.400.000 / malam</p>
+        </a>
+
+        <a class="kartu" href="paviliun.html" data-reveal>
+          <div class="media r-kartu" data-img="Paviliun Halimun — teras bambu, kabut menutup lembah"></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Halimun</span>
+            <span class="kartu__arah">Lembah</span>
+          </div>
+          <p class="kartu__teks">Berdiri paling tinggi. Sampai pukul sembilan pagi, yang
+            terlihat dari terasnya cuma putih.</p>
+          <p class="kartu__harga">Mulai Rp 3.200.000 / malam</p>
+        </a>
+
+        <a class="kartu" href="paviliun.html" data-reveal>
+          <div class="media r-kartu" data-img="Paviliun Cai — panggung kayu di atas sungai berbatu"></div>
+          <div class="kartu__kepala">
+            <span class="kartu__nama">Cai</span>
+            <span class="kartu__arah">Sungai</span>
+          </div>
+          <p class="kartu__teks">Dibangun di atas tiang, sejengkal di atas air. Suara
+            sungainya tidak pernah berhenti, dan orang cepat terbiasa.</p>
+          <p class="kartu__harga">Mulai Rp 2.800.000 / malam</p>
+        </a>
+      </div>
+
+      <p style="margin-top:var(--sp-4)" data-reveal>
+        <a class="tombol tombol--rotan" href="paviliun.html">Lihat delapan paviliun</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 6 · Jeda terang — satu-satunya section terang di halaman ini --------- -->
   <section class="section" data-section="terang">
     <div class="wadah">
       <div class="grid">
-        <div class="kolom-tengah">
-          <span class="label">Jeda</span>
-          <h2>Section terang</h2>
-          <p style="margin-top:var(--sp-2)">Scroll melewati bagian ini dan perhatikan nav —
-            latarnya tetap gelap dan tulisannya tetap terbaca di atas bidang terang.</p>
+        <div class="kolom-tengah" data-reveal-grup>
+          <span class="label" data-reveal>Sehari di sini</span>
+          <h2 data-reveal style="margin-top:var(--sp-2)">Tidak ada yang<br>perlu dikerjakan</h2>
+          <p data-reveal style="margin-top:var(--sp-3)">Tidak ada jadwal yang ditempel di
+            pintu, tidak ada kegiatan yang harus diikuti. Sebagian tamu berjalan sampai
+            sungai, sebagian lagi tidak turun sama sekali dari terasnya.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="min-height:70svh"></section>
+  <!-- 7 · Santapan dan pengalaman ----------------------------------------- -->
+  <section class="section">
+    <div class="wadah">
+      <div class="duo" data-reveal-grup>
+        <a href="santapan.html" data-reveal>
+          <div class="media r-kartu" data-img="Meja jati panjang, mangkuk tanah, tikar pandan"></div>
+          <p class="duo__judul">Satu meja,<br>dua kali sehari</p>
+          <p class="kartu__teks">Yang dimasak menyesuaikan apa yang matang di kebun pagi
+            itu. Tidak ada daftar menu, dan tidak ada yang perlu dipilih.</p>
+          <p class="kartu__harga"><span class="tautan">Santapan</span></p>
+        </a>
+
+        <a href="pengalaman.html" data-reveal>
+          <div class="media r-kartu" data-img="Alat tenun, pintalan, dan anyaman setengah jadi di bangku kayu"></div>
+          <p class="duo__judul">Belajar dari<br>yang mengerjakan</p>
+          <p class="kartu__teks">Menenun, menganyam bambu, mewarnai kain dengan tarum.
+            Diajarkan oleh orang yang memang mengerjakannya tiap hari.</p>
+          <p class="kartu__harga"><span class="tautan">Pengalaman</span></p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · Penutup — foto penuh, tautan reservasi yang tenang -------------- -->
+  <section class="media r-hero" data-scrim="penuh" data-parallax
+           data-img="Lereng menjelang malam, satu jendela menyala, kabut tipis"
+           style="display:grid; place-items:center; text-align:center; margin-top:var(--section-gap)">
+    <div class="wadah" style="position:relative; z-index:3" data-reveal-grup>
+      <h2 data-reveal>Delapan paviliun,<br>sepanjang tahun</h2>
+      <p data-reveal style="margin:var(--sp-3) auto 0; max-width:42ch; color:var(--kapas-80)">
+        Menginap paling singkat dua malam. Pemesanan dibalas dalam satu hari.</p>
+      <p data-reveal style="margin-top:var(--sp-4)">
+        <a class="tautan" href="reservasi.html">Reservasi</a>
+      </p>
+    </div>
+  </section>
 
 </main>
 
@@ -113,7 +277,7 @@
       <div>
         <p class="footer__merek">Baduy Villa</p>
         <p class="footer__kalimat">Delapan paviliun di kaki Pegunungan Kendeng, Banten.
-          Tanpa televisi, tanpa keramaian.</p>
+          Menginap menurut adat.</p>
       </div>
 
       <div class="footer__kolom">
@@ -144,7 +308,11 @@
 </footer>
 <!-- ==== /FOOTER ======================================================== -->
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/tirai.js"></script>
+<script src="js/gerak.js"></script>
 </body>
 </html>
