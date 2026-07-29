@@ -29,7 +29,14 @@
 
   /* Overlay pengaman kontras untuk teks di atas foto. Wajib, bukan opsional. */
   --scrim-full: linear-gradient(to bottom, rgba(21,26,24,.55), rgba(21,26,24,.70));
-  --scrim-base: linear-gradient(to top, rgba(21,26,24,.85) 0%, rgba(21,26,24,.35) 45%, transparent 100%);
+  /* Dikuatkan setelah foto asli masuk. Versi lama (.85 lalu .35 di 45%)
+     terlalu cepat menipis: judul Halimun di atas kabut putih terukur
+     3,53:1, gagal AA. Yang sekarang pekat sampai kira-kira sepertiga
+     bawah bidang — tempat judul hero benar-benar duduk — lalu baru
+     melepas, jadi dua pertiga atas fotonya tetap jernih. */
+  --scrim-base: linear-gradient(to top,
+    rgba(21,26,24,.92) 0%, rgba(21,26,24,.80) 26%,
+    rgba(21,26,24,.46) 56%, rgba(21,26,24,.12) 84%, transparent 100%);
 
   /* Untuk judul yang duduk di TENGAH foto. Dua gradient di atas paling tipis
      justru di tengah bidang; di atas foto pagi yang terang, judul beranda
