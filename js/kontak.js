@@ -12,8 +12,8 @@
    ========================================================================== */
 
 window.KONTAK = {
-  wa: '6281234567890',
-  email: 'halo@baduyvilla.id'
+  wa: '628119886714',
+  email: 'genussoft@gmail.com'
 };
 
 (function () {
