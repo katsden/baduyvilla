@@ -1,15 +1,21 @@
 # =============================================================================
 # siapkan-foto.ps1 - Baduy Villa
 #
-# Mengubah PNG mentah dari folder foto/ menjadi JPEG siap web di assets/img/.
-# PNG hasil generator besarnya 1,5 sampai 2,9 MB per berkas; di beranda ada
-# lima, jadi tanpa konversi halaman ini menyeret 10 MB hanya untuk gambar.
+# Menyapu folder foto/ (termasuk subfolder), lalu menulis JPEG siap web ke
+# assets/img/. PNG dari generator besarnya 2-3 MB per berkas; tanpa langkah
+# ini situs menyeret puluhan megabita hanya untuk gambar.
 #
-# Berkas ini sengaja ditulis tanpa karakter di luar ASCII: PowerShell 5.1
-# membaca .ps1 sebagai ANSI kalau tidak ada BOM, dan tanda pisah panjang
-# maupun huruf beraksen akan merusak parser.
+# Nama berkas dirapikan otomatis:
+#   - akhiran ganda ".jpg.png" jadi ".jpg"
+#   - spasi jadi tanda hubung
+#   - ejaan yang meleset diperbaiki lewat tabel $ganti di bawah
 #
-# Jalankan ulang kapan saja setelah menambah foto baru:
+# Lebar keluaran ditentukan dari rasionya, jadi foto baru tidak perlu
+# didaftarkan satu per satu.
+#
+# Berkas ini ditulis tanpa karakter di luar ASCII: PowerShell 5.1 membaca
+# .ps1 sebagai ANSI kalau tidak ada BOM.
+#
 #   powershell -ExecutionPolicy Bypass -File scripts\siapkan-foto.ps1
 # =============================================================================
 
@@ -21,15 +27,49 @@ $tujuan = Join-Path $akar 'assets\img'
 
 if (-not (Test-Path $tujuan)) { New-Item -ItemType Directory -Force $tujuan | Out-Null }
 
-# Nama berkas sumber dipetakan ke nama slot yang dipakai di HTML.
-# Lebar maksimal disesuaikan pemakaiannya: hero melebar penuh, kartu tidak.
-$peta = @(
-  @{ Cocok = '10_12_11 PM'; Nama = 'hero-beranda.jpg';       LebarMaks = 1672 }
-  @{ Cocok = '10_13_45 PM'; Nama = 'jalan-masuk.jpg';        LebarMaks = 1536 }
-  @{ Cocok = '05_49_27 AM'; Nama = 'santapan-beranda.jpg';   LebarMaks = 900  }
-  @{ Cocok = '05_50_33 AM'; Nama = 'pengalaman-beranda.jpg'; LebarMaks = 900  }
-  @{ Cocok = '05_57_10 AM'; Nama = 'penutup.jpg';            LebarMaks = 1672 }
-)
+# Berkas lama yang namanya masih bawaan generator.
+$petaLama = @{
+  '10_12_11 PM' = 'hero-beranda.jpg'
+  '10_13_45 PM' = 'jalan-masuk.jpg'
+  '05_49_27 AM' = 'santapan-beranda.jpg'
+  '05_50_33 AM' = 'pengalaman-beranda.jpg'
+  '05_57_10 AM' = 'penutup.jpg'
+}
+
+# Perbaikan ejaan dan penamaan.
+$ganti = @{
+  'pav isuk'     = 'pav-isuk'
+  'pav-leuweng'  = 'pav-leuweung'
+}
+
+# Lebar maksimal menurut rasio lebar dibagi tinggi.
+function LebarUntuk($rasio) {
+  if ($rasio -gt 1.6) { return 1672 }   # 16:9  hero
+  if ($rasio -gt 1.2) { return 1536 }   # 3:2   lanskap
+  if ($rasio -gt 0.9) { return 1000 }   # 1:1   galeri
+  if ($rasio -gt 0.78) { return 900 }   # 4:5   makro
+  return 900                            # 3:4   kartu
+}
+
+function NamaKeluaran($berkas) {
+  foreach ($kunci in $petaLama.Keys) {
+    if ($berkas.Name -like "*$kunci*") { return $petaLama[$kunci] }
+  }
+
+  $n = $berkas.Name
+  $n = $n -replace '\.jpg\.png$', ''
+  $n = $n -replace '\.png$', ''
+  $n = $n -replace '\.jpg$', ''
+  $n = $n -replace '\s+', '-'
+  $n = $n.ToLower()
+
+  foreach ($kunci in $ganti.Keys) {
+    if ($n -eq ($kunci -replace '\s+', '-')) { $n = $ganti[$kunci] }
+    if ($n -eq $kunci) { $n = $ganti[$kunci] }
+  }
+
+  return "$n.jpg"
+}
 
 $encoder = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() |
            Where-Object { $_.MimeType -eq 'image/jpeg' }
@@ -39,20 +79,15 @@ $params.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter(
 
 $totalSebelum = 0
 $totalSesudah = 0
+$jumlah = 0
 
-foreach ($slot in $peta) {
-  $berkas = Get-ChildItem $sumber -Filter *.png |
-            Where-Object { $_.Name -like "*$($slot.Cocok)*" } |
-            Select-Object -First 1
+Get-ChildItem $sumber -Recurse -File -Include *.png, *.jpg, *.jpeg |
+  Sort-Object Name | ForEach-Object {
 
-  if (-not $berkas) {
-    Write-Host ("LEWAT  {0} - sumber tidak ditemukan" -f $slot.Nama)
-    continue
-  }
+  $asli = [System.Drawing.Image]::FromFile($_.FullName)
+  $rasio = $asli.Width / $asli.Height
 
-  $asli = [System.Drawing.Image]::FromFile($berkas.FullName)
-
-  $lebar  = [math]::Min($asli.Width, $slot.LebarMaks)
+  $lebar  = [math]::Min($asli.Width, (LebarUntuk $rasio))
   $tinggi = [int][math]::Round($asli.Height * ($lebar / $asli.Width))
 
   $kanvas = New-Object System.Drawing.Bitmap($lebar, $tinggi)
@@ -62,19 +97,21 @@ foreach ($slot in $peta) {
   $g.SmoothingMode     = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
   $g.DrawImage($asli, 0, 0, $lebar, $tinggi)
 
-  $keluar = Join-Path $tujuan $slot.Nama
+  $nama = NamaKeluaran $_
+  $keluar = Join-Path $tujuan $nama
   $kanvas.Save($keluar, $encoder, $params)
 
   $g.Dispose(); $kanvas.Dispose(); $asli.Dispose()
 
-  $sebelumKB = [math]::Round($berkas.Length / 1KB)
+  $sebelumKB = [math]::Round($_.Length / 1KB)
   $sesudahKB = [math]::Round((Get-Item $keluar).Length / 1KB)
   $totalSebelum += $sebelumKB
   $totalSesudah += $sesudahKB
+  $jumlah += 1
 
-  Write-Host ("{0,-24} {1,5}x{2,-5} {3,6} KB -> {4,5} KB" -f $slot.Nama, $lebar, $tinggi, $sebelumKB, $sesudahKB)
+  Write-Host ("{0,-24} {1,5}x{2,-5} {3,6} KB -> {4,5} KB" -f $nama, $lebar, $tinggi, $sebelumKB, $sesudahKB)
 }
 
 Write-Host ''
 $turun = [math]::Round(100 - ($totalSesudah / $totalSebelum * 100))
-Write-Host ("Total: {0} KB -> {1} KB (turun {2} persen)" -f $totalSebelum, $totalSesudah, $turun)
+Write-Host ("{0} berkas. Total {1} KB -> {2} KB (turun {3} persen)" -f $jumlah, $totalSebelum, $totalSesudah, $turun)

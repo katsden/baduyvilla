@@ -31,6 +31,13 @@
   --scrim-full: linear-gradient(to bottom, rgba(21,26,24,.55), rgba(21,26,24,.70));
   --scrim-base: linear-gradient(to top, rgba(21,26,24,.85) 0%, rgba(21,26,24,.35) 45%, transparent 100%);
 
+  /* Untuk judul yang duduk di TENGAH foto. Dua gradient di atas paling tipis
+     justru di tengah bidang; di atas foto pagi yang terang, judul beranda
+     terukur 1,7:1 — gagal AA telak. Yang ini rata dan cukup pekat di seluruh
+     bidang, jadi kontrasnya tidak bergantung pada foto mana yang dipasang.
+     Latar gelap memang premis situs ini, jadi meredam foto bukan kompromi. */
+  --scrim-judul: linear-gradient(to bottom, rgba(21,26,24,.68), rgba(21,26,24,.74));
+
   /* Peran semantik. Di-override oleh [data-section="terang"] di base.css. */
   --bg:        var(--nila);
   --fg:        var(--kapas);

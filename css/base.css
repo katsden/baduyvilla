@@ -310,7 +310,8 @@ a {
 
 /* Overlay pengaman kontras. Wajib di setiap teks yang duduk di atas foto. */
 .media[data-scrim='penuh']::after,
-.media[data-scrim='bawah']::after {
+.media[data-scrim='bawah']::after,
+.media[data-scrim='judul']::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -319,6 +320,7 @@ a {
 
 .media[data-scrim='penuh']::after { background: var(--scrim-full); }
 .media[data-scrim='bawah']::after { background: var(--scrim-base); }
+.media[data-scrim='judul']::after { background: var(--scrim-judul); }
 
 /* Caption duduk di bawah foto, tidak menumpuk di atasnya. */
 .media + .caption { margin-top: var(--sp-2); }

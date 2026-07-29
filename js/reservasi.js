@@ -11,9 +11,9 @@
 (function () {
   'use strict';
 
-  /* Ganti nomor ini kalau nomornya berubah. Muncul juga di nav dan footer
-     pada index.html — ketiganya harus sama. */
-  var NOMOR = '6281234567890';
+  /* Nomornya tinggal di js/kontak.js, satu tempat untuk seluruh situs.
+     Nilai cadangan di sini hanya dipakai kalau berkas itu gagal dimuat. */
+  var NOMOR = (window.KONTAK && window.KONTAK.wa) || '6281234567890';
 
   var borang = document.querySelector('[data-reservasi]');
   if (!borang) return;

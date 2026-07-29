@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/komponen.css">
 <script>try{var s=sessionStorage;if(s.getItem('tirai-masuk')||!s.getItem('sudah-datang'))document.documentElement.classList.add('tirai-tertutup')}catch(e){}</script>
 </head>
-<body>
+<body data-hero>
 
 <div class="tirai" data-tirai aria-hidden="true"></div>
 
@@ -53,7 +53,7 @@
       <hr class="garis">
       <p class="label">Hubungi</p>
       <p class="menu__pav">
-        <a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a><br>
+        <a class="tautan" data-wa href="https://wa.me/6281234567890">WhatsApp</a><br>
         <a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a>
       </p>
     </aside>
@@ -63,14 +63,18 @@
 
 <main id="utama">
 
+  <section class="media r-hero" data-scrim="bawah" data-parallax
+           data-img="Beberapa atap ijuk di ketinggian berbeda di lereng, terlihat lewat kabut"
+           style="display:grid; place-items:end start; text-align:left">
+    <img src="assets/img/hero-paviliun.jpg" alt="Beberapa atap ijuk pada ketinggian berbeda di sebuah lereng, terlihat samar lewat kabut." fetchpriority="high">
+    <div class="wadah" style="position:relative; z-index:3; padding-bottom:var(--sp-5)">
+      <span class="label">Delapan paviliun</span>
+      <h1 style="margin-top:var(--sp-2)">Paviliun</h1>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wadah">
-      <div class="grid">
-        <div class="kolom-kiri" data-reveal-grup>
-          <span class="label" data-reveal>Delapan paviliun</span>
-          <h1 data-reveal style="margin-top:var(--sp-2)">Paviliun</h1>
-        </div>
-      </div>
 
       <div class="grid" style="margin-top:var(--sp-4)">
         <div class="kolom-offset" data-reveal>
@@ -111,7 +115,7 @@
       <div class="kartu-daftar" data-saring-daftar data-reveal-grup style="margin-top:var(--sp-4)">
         <a class="kartu" href="paviliun-awi.html" data-reveal
            data-tamu="2" data-orientasi="Hutan">
-          <div class="media r-kartu" data-img="Kamar berdinding bambu dengan satu tempat tidur rendah dan bukaan persegi menghadap hutan."></div>
+          <div class="media r-kartu" data-img="Kamar berdinding bambu dengan satu tempat tidur rendah dan bukaan persegi menghadap hutan."><img src="assets/img/pav-awi.jpg" alt="Kamar berdinding bambu dengan satu tempat tidur rendah dan bukaan persegi menghadap hutan." loading="lazy"></div>
           <div class="kartu__kepala">
             <span class="kartu__nama">Awi</span>
             <span class="kartu__arah">Hutan</span>
@@ -121,7 +125,7 @@
         </a>
         <a class="kartu" href="paviliun-ijuk.html" data-reveal
            data-tamu="2" data-orientasi="Hutan">
-          <div class="media r-kartu" data-img="Paviliun kecil dilihat dari bawah, atap ijuk tebal mendominasi, kanopi hutan di kedua sisi."></div>
+          <div class="media r-kartu" data-img="Paviliun kecil dilihat dari bawah, atap ijuk tebal mendominasi, kanopi hutan di kedua sisi."><img src="assets/img/pav-ijuk.jpg" alt="Paviliun kecil dilihat dari bawah, atap ijuk tebal mendominasi, kanopi hutan di kedua sisi." loading="lazy"></div>
           <div class="kartu__kepala">
             <span class="kartu__nama">Ijuk</span>
             <span class="kartu__arah">Hutan</span>
@@ -131,7 +135,7 @@
         </a>
         <a class="kartu" href="paviliun-jati.html" data-reveal
            data-tamu="4" data-orientasi="Lembah">
-          <div class="media r-kartu" data-img="Sudut ruang dengan tiang jati bekas yang berat dan bukaan lebar menghadap lembah berkabut."></div>
+          <div class="media r-kartu" data-img="Sudut ruang dengan tiang jati bekas yang berat dan bukaan lebar menghadap lembah berkabut."><img src="assets/img/pav-jati.jpg" alt="Sudut ruang dengan tiang jati bekas yang berat dan bukaan lebar menghadap lembah berkabut." loading="lazy"></div>
           <div class="kartu__kepala">
             <span class="kartu__nama">Jati</span>
             <span class="kartu__arah">Lembah</span>
@@ -141,7 +145,7 @@
         </a>
         <a class="kartu" href="paviliun-tarum.html" data-reveal
            data-tamu="2" data-orientasi="Lembah">
-          <div class="media r-kartu" data-img="Ruang dengan kain nila tergantung sebagai penyekat, cahaya menembus anyaman benangnya."></div>
+          <div class="media r-kartu" data-img="Ruang dengan kain nila tergantung sebagai penyekat, cahaya menembus anyaman benangnya."><img src="assets/img/pav-tarum.jpg" alt="Ruang dengan kain nila tergantung sebagai penyekat, cahaya menembus anyaman benangnya." loading="lazy"></div>
           <div class="kartu__kepala">
             <span class="kartu__nama">Tarum</span>
             <span class="kartu__arah">Lembah</span>
@@ -161,7 +165,7 @@
         </a>
         <a class="kartu" href="paviliun-cai.html" data-reveal
            data-tamu="2" data-orientasi="Sungai">
-          <div class="media r-kartu" data-img="Paviliun panggung di atas sungai dangkal berbatu, air berlumut di sekelilingnya."></div>
+          <div class="media r-kartu" data-img="Paviliun panggung di atas sungai dangkal berbatu, air berlumut di sekelilingnya."><img src="assets/img/pav-cai.jpg" alt="Paviliun panggung di atas sungai dangkal berbatu, air berlumut di sekelilingnya." loading="lazy"></div>
           <div class="kartu__kepala">
             <span class="kartu__nama">Cai</span>
             <span class="kartu__arah">Sungai</span>
@@ -171,7 +175,7 @@
         </a>
         <a class="kartu" href="paviliun-leuweung.html" data-reveal
            data-tamu="4" data-orientasi="Hutan">
-          <div class="media r-kartu" data-img="Paviliun hampir tertelan hutan, hanya garis atap dan satu pintu menyala terlihat di antara batang pohon."></div>
+          <div class="media r-kartu" data-img="Paviliun hampir tertelan hutan, hanya garis atap dan satu pintu menyala terlihat di antara batang pohon."><img src="assets/img/pav-leuweung.jpg" alt="Paviliun hampir tertelan hutan, hanya garis atap dan satu pintu menyala terlihat di antara batang pohon." loading="lazy"></div>
           <div class="kartu__kepala">
             <span class="kartu__nama">Leuweung</span>
             <span class="kartu__arah">Hutan</span>
@@ -181,7 +185,7 @@
         </a>
         <a class="kartu" href="paviliun-isuk.html" data-reveal
            data-tamu="2" data-orientasi="Sungai">
-          <div class="media r-kartu" data-img="Ruang menghadap timur saat matahari terbit, satu bidang cahaya tajam melintasi lantai tanah padat."></div>
+          <div class="media r-kartu" data-img="Ruang menghadap timur saat matahari terbit, satu bidang cahaya tajam melintasi lantai tanah padat."><img src="assets/img/pav-isuk.jpg" alt="Ruang menghadap timur saat matahari terbit, satu bidang cahaya tajam melintasi lantai tanah padat." loading="lazy"></div>
           <div class="kartu__kepala">
             <span class="kartu__nama">Isuk</span>
             <span class="kartu__arah">Sungai</span>
@@ -218,7 +222,7 @@
         <div>
           <h3>Hubungi</h3>
           <ul role="list">
-            <li><a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a></li>
+            <li><a class="tautan" data-wa href="https://wa.me/6281234567890">WhatsApp</a></li>
             <li><a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a></li>
           </ul>
         </div>
@@ -236,6 +240,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/kontak.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/tirai.js"></script>
 <script src="js/gerak.js"></script>

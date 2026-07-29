@@ -56,7 +56,7 @@
       <hr class="garis">
       <p class="label">Hubungi</p>
       <p class="menu__pav">
-        <a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a><br>
+        <a class="tautan" data-wa href="https://wa.me/6281234567890">WhatsApp</a><br>
         <a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a>
       </p>
     </aside>
@@ -67,7 +67,7 @@
 <main id="utama">
 
   <!-- 1 · Hero — foto penuh layar ---------------------------------------- -->
-  <section class="media r-hero" data-scrim="bawah" data-parallax
+  <section class="media r-hero" data-scrim="judul" data-parallax
            style="display:grid; place-items:center; text-align:center">
     <img src="assets/img/hero-beranda.jpg" alt="Satu paviliun beratap ijuk berdiri sendiri di lereng berhutan, kabut memenuhi lembah di bawahnya saat cahaya pertama." fetchpriority="high" width="1672" height="941">
     <div class="wadah" style="position:relative; z-index:3">
@@ -129,35 +129,45 @@
 
       <div class="bahan" data-reveal-grup style="margin-top:var(--sp-5)">
         <figure data-reveal>
-          <div class="media r-makro" data-img="Bambu belah diikat tali ijuk, dari sangat dekat"></div>
+          <div class="media r-makro" data-img="Bambu belah diikat tali ijuk, dari sangat dekat">
+            <img src="assets/img/makro-bambu.jpg" alt="Bambu belah diikat tali ijuk hitam, terlihat sangat dekat." loading="lazy" width="900" height="1125">
+          </div>
           <p class="bahan__nama">Bambu</p>
           <p class="bahan__teks">Ditebang saat bulan tua supaya tidak dimakan kumbang.
             Dibelah, direndam, lalu dianyam di tempat.</p>
         </figure>
 
         <figure data-reveal>
-          <div class="media r-makro" data-img="Balok jati bekas, lubang paku dan bekas gergaji"></div>
+          <div class="media r-makro" data-img="Balok jati bekas, lubang paku dan bekas gergaji">
+            <img src="assets/img/makro-jati.jpg" alt="Balok jati bekas dengan lubang paku lama dan bekas gergaji." loading="lazy" width="900" height="1125">
+          </div>
           <p class="bahan__nama">Kayu jati bekas</p>
           <p class="bahan__teks">Diambil dari rumah lama yang dibongkar. Lubang paku dan
             bekas gergajinya dibiarkan terlihat.</p>
         </figure>
 
         <figure data-reveal>
-          <div class="media r-makro" data-img="Tepi atap ijuk dari bawah, setetes air di ujung serat"></div>
+          <div class="media r-makro" data-img="Tepi atap ijuk dari bawah, setetes air di ujung serat">
+            <img src="assets/img/makro-ijuk.jpg" alt="Tepi atap ijuk dilihat dari bawah, setetes air di ujung serat." loading="lazy" width="900" height="1125">
+          </div>
           <p class="bahan__nama">Atap ijuk</p>
           <p class="bahan__teks">Serat aren, dipasang berlapis-lapis. Menahan panas, dan
             mengubah hujan jadi suara yang rata.</p>
         </figure>
 
         <figure data-reveal>
-          <div class="media r-makro" data-img="Lantai tanah padat yang disapu, bertemu dinding bambu"></div>
+          <div class="media r-makro" data-img="Lantai tanah padat yang disapu, bertemu dinding bambu">
+            <img src="assets/img/makro-tanah.jpg" alt="Lantai tanah padat yang tersapu rata, bertemu dasar dinding bambu." loading="lazy" width="900" height="1125">
+          </div>
           <p class="bahan__nama">Lantai tanah padat</p>
           <p class="bahan__teks">Tanah setempat ditumbuk sampai keras, disapu tiap pagi.
             Dingin di telapak kaki sepanjang hari.</p>
         </figure>
 
         <figure data-reveal>
-          <div class="media r-makro" data-img="Kain tenun nila di alat tenun, benang tidak rata"></div>
+          <div class="media r-makro" data-img="Kain tenun nila di alat tenun, benang tidak rata">
+            <img src="assets/img/makro-tenun.jpg" alt="Kain tenun nila di alat tenun, benangnya tidak rata." loading="lazy" width="900" height="1125">
+          </div>
           <p class="bahan__nama">Tenun nila</p>
           <p class="bahan__teks">Diwarnai daun tarum. Warnanya turun sedikit tiap tahun,
             dan memang begitu seharusnya.</p>
@@ -178,7 +188,9 @@
 
       <div class="kartu-daftar kartu-daftar--tiga" data-reveal-grup style="margin-top:var(--sp-5)">
         <a class="kartu" href="paviliun.html" data-reveal>
-          <div class="media r-kartu" data-img="Paviliun Awi — dinding bambu, bukaan tunggal ke hutan"></div>
+          <div class="media r-kartu" data-img="Paviliun Awi — dinding bambu, bukaan tunggal ke hutan">
+            <img src="assets/img/pav-awi.jpg" alt="Kamar berdinding bambu dengan satu tempat tidur rendah dan bukaan persegi menghadap hutan." loading="lazy" width="900" height="1200">
+          </div>
           <div class="kartu__kepala">
             <span class="kartu__nama">Awi</span>
             <span class="kartu__arah">Hutan</span>
@@ -200,7 +212,9 @@
         </a>
 
         <a class="kartu" href="paviliun.html" data-reveal>
-          <div class="media r-kartu" data-img="Paviliun Cai — panggung kayu di atas sungai berbatu"></div>
+          <div class="media r-kartu" data-img="Paviliun Cai — panggung kayu di atas sungai berbatu">
+            <img src="assets/img/pav-cai.jpg" alt="Paviliun panggung di atas sungai dangkal berbatu, air berlumut di sekelilingnya." loading="lazy" width="900" height="1200">
+          </div>
           <div class="kartu__kepala">
             <span class="kartu__nama">Cai</span>
             <span class="kartu__arah">Sungai</span>
@@ -298,7 +312,7 @@
         <div>
           <h3>Hubungi</h3>
           <ul role="list">
-            <li><a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a></li>
+            <li><a class="tautan" data-wa href="https://wa.me/6281234567890">WhatsApp</a></li>
             <li><a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a></li>
           </ul>
         </div>
@@ -316,6 +330,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/kontak.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/tirai.js"></script>
 <script src="js/gerak.js"></script>

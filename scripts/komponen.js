@@ -36,6 +36,20 @@ function rupiah(angka) {
   return 'Rp ' + angka.toLocaleString('id-ID');
 }
 
+/* Menuliskan <img> hanya kalau berkasnya benar-benar ada di assets/img.
+   Kalau belum ada, yang dikembalikan string kosong dan wadahnya tetap
+   memakai placeholder bertekstur lewat atribut data-img. Foto baru cukup
+   dijatuhkan ke folder itu lalu situs dibangun ulang — tidak ada markup
+   yang perlu disunting. */
+function foto(berkas, alt, opsi) {
+  if (!berkas) return '';
+  if (!fs.existsSync(path.join(AKAR, 'assets', 'img', berkas))) return '';
+
+  opsi = opsi || {};
+  return '<img src="assets/img/' + berkas + '" alt="' + aman(alt) + '"' +
+         (opsi.utama ? ' fetchpriority="high"' : ' loading="lazy"') + '>';
+}
+
 function halaman(opsi) {
   return [
     '<!DOCTYPE html>',
@@ -74,6 +88,7 @@ function halaman(opsi) {
     '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>',
     '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>',
     '<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>',
+    '<script src="js/kontak.js"></script>',
     '<script src="js/nav.js"></script>',
     '<script src="js/tirai.js"></script>',
     '<script src="js/gerak.js"></script>',
@@ -83,4 +98,7 @@ function halaman(opsi) {
   ].filter(function (baris) { return baris !== null; }).join('\n') + '\n';
 }
 
-module.exports = { AKAR: AKAR, NAV: NAV, FOOTER: FOOTER, halaman: halaman, aman: aman, rupiah: rupiah };
+module.exports = {
+  AKAR: AKAR, NAV: NAV, FOOTER: FOOTER,
+  halaman: halaman, aman: aman, rupiah: rupiah, foto: foto
+};

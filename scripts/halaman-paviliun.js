@@ -16,7 +16,8 @@ function kartu(p) {
   return [
     '        <a class="kartu" href="paviliun-' + p.id + '.html" data-reveal',
     '           data-tamu="' + p.tamu + '" data-orientasi="' + p.orientasi + '">',
-    '          <div class="media r-kartu" data-img="' + k.aman(p.alt) + '"></div>',
+    '          <div class="media r-kartu" data-img="' + k.aman(p.alt) + '">' +
+      k.foto('pav-' + p.id + '.jpg', p.alt) + '</div>',
     '          <div class="kartu__kepala">',
     '            <span class="kartu__nama">' + p.nama + '</span>',
     '            <span class="kartu__arah">' + p.orientasi + '</span>',
@@ -31,14 +32,20 @@ function kartu(p) {
 function daftar() {
   var isi = [
     '',
+    '  <section class="media r-hero" data-scrim="bawah" data-parallax',
+    '           data-img="Beberapa atap ijuk di ketinggian berbeda di lereng, terlihat lewat kabut"',
+    '           style="display:grid; place-items:end start; text-align:left">',
+    '    ' + k.foto('hero-paviliun.jpg',
+      'Beberapa atap ijuk pada ketinggian berbeda di sebuah lereng, terlihat samar lewat kabut.',
+      { utama: true }),
+    '    <div class="wadah" style="position:relative; z-index:3; padding-bottom:var(--sp-5)">',
+    '      <span class="label">Delapan paviliun</span>',
+    '      <h1 style="margin-top:var(--sp-2)">Paviliun</h1>',
+    '    </div>',
+    '  </section>',
+    '',
     '  <section class="section">',
     '    <div class="wadah">',
-    '      <div class="grid">',
-    '        <div class="kolom-kiri" data-reveal-grup>',
-    '          <span class="label" data-reveal>Delapan paviliun</span>',
-    '          <h1 data-reveal style="margin-top:var(--sp-2)">Paviliun</h1>',
-    '        </div>',
-    '      </div>',
     '',
     '      <div class="grid" style="margin-top:var(--sp-4)">',
     '        <div class="kolom-offset" data-reveal>',
@@ -90,6 +97,7 @@ function daftar() {
       judul: 'Paviliun — Baduy Villa',
       deskripsi: 'Delapan paviliun di kaki Pegunungan Kendeng. Masing-masing menghadap arah yang berbeda.',
       isi: isi,
+      hero: true,
       skrip: '<script src="js/saring.js"></script>'
     })
   };
@@ -104,7 +112,8 @@ function detail(p, indeks) {
     var b = BAHAN[kunci];
     return [
       '        <figure data-reveal>',
-      '          <div class="media r-makro" data-img="' + k.aman(b.alt) + '"></div>',
+      '          <div class="media r-makro" data-img="' + k.aman(b.alt) + '">' +
+        k.foto(b.foto, b.alt) + '</div>',
       '          <p class="bahan__nama">' + b.nama + '</p>',
       '          <p class="bahan__teks">' + b.teks + '</p>',
       '        </figure>'
@@ -116,6 +125,7 @@ function detail(p, indeks) {
     '  <section class="media r-hero" data-scrim="bawah" data-parallax',
     '           data-img="' + k.aman(p.alt) + '"',
     '           style="display:grid; place-items:end start; text-align:left">',
+    '    ' + k.foto('pav-' + p.id + '.jpg', p.alt, { utama: true }),
     '    <div class="wadah" style="position:relative; z-index:3; padding-bottom:var(--sp-5)">',
     '      <span class="label">' + p.orientasi + ' &middot; ' + p.tamu + ' tamu</span>',
     '      <h1 style="margin-top:var(--sp-2)">' + p.nama + '</h1>',
@@ -189,9 +199,12 @@ function detail(p, indeks) {
     '      <span class="label" data-reveal>Galeri</span>',
     '    </div>',
     '    <div class="galeri" data-reveal>',
-    '      <div class="media r-galeri" data-img="' + k.aman(p.nama) + ' — sudut ruang saat pagi"></div>',
-    '      <div class="media r-galeri" data-img="' + k.aman(p.nama) + ' — bukaan menghadap ' + p.orientasi.toLowerCase() + '"></div>',
-    '      <div class="media r-galeri" data-img="' + k.aman(p.nama) + ' — detail sambungan bambu dan kayu"></div>',
+    '      <div class="media r-galeri" data-img="' + k.aman(p.nama) + ' — kendi tanah di rak bambu">' +
+      k.foto('galeri-1.jpg', 'Kendi tanah liat di rak bambu, cahaya dari samping.') + '</div>',
+    '      <div class="media r-galeri" data-img="' + k.aman(p.nama) + ' — lipatan kain nila">' +
+      k.foto('galeri-2.jpg', 'Tumpukan kain nila terlipat di atas kayu gelap, dilihat dari atas.') + '</div>',
+    '      <div class="media r-galeri" data-img="' + k.aman(p.nama) + ' — kancing pintu bambu">' +
+      k.foto('galeri-3.jpg', 'Kancing pintu bambu yang dipahat tangan, aus dan halus.') + '</div>',
     '      <div class="media r-galeri" data-img="' + k.aman(p.nama) + ' — teras menjelang malam"></div>',
     '    </div>',
     '    <div class="wadah">',
