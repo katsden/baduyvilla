@@ -17,6 +17,14 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+
+  /* Foto asimetris sengaja menembus keluar grid, dan laci menu yang tertutup
+     diparkir di luar tepi kanan. Keduanya benar secara desain, tapi tanpa ini
+     lebar dokumen ikut memanjang dan halaman bisa digeser mendatar.
+
+     Dipakai clip, bukan hidden: hidden membuat elemen ini jadi wadah
+     penggulung, dan position: sticky di panel reservasi berhenti bekerja. */
+  overflow-x: clip;
 }
 
 /* Lenis mengambil alih smooth scroll. Native dimatikan supaya tidak bentrok. */
@@ -45,7 +53,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img,

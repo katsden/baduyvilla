@@ -86,6 +86,7 @@
 
   <section class="section" style="padding-top:0">
     <div class="wadah">
+      <div class="dua-kolom">
       <form class="borang" data-reservasi novalidate>
         <div class="borang__baris">
           <label class="borang__medan">
@@ -157,6 +158,28 @@
           <p class="caption">Membuka WhatsApp dengan pesan yang sudah terisi. Belum ada yang terkirim sebelum kamu menekan kirim di sana.</p>
         </div>
       </form>
+
+      <!-- Sisi kanan borang tadinya kosong separuh halaman. Diisi keterangan
+           yang memang dicari orang saat mengisi, bukan hiasan. -->
+      <aside class="panel" aria-label="Yang terjadi setelah mengirim">
+        <span class="label">Setelah ini</span>
+        <ol class="panel__langkah">
+          <li><span class="panel__no">01</span>
+            <span>WhatsApp terbuka dengan pesan yang sudah terisi. Belum ada yang
+              terkirim sebelum kamu menekan kirim di sana.</span></li>
+          <li><span class="panel__no">02</span>
+            <span>Dibalas dalam satu hari, oleh orang. Bukan balasan otomatis.</span></li>
+          <li><span class="panel__no">03</span>
+            <span>Tanggalnya baru dikunci setelah uang muka, dan itu diurus lewat
+              percakapan yang sama.</span></li>
+        </ol>
+
+        <p class="panel__ringkas">
+          Masuk 14.00 &middot; Keluar 11.00<br>
+          Menginap paling singkat dua malam<br>
+          Sinyal hanya di teras Halimun dan dekat gerbang</p>
+      </aside>
+      </div>
     </div>
   </section>
 
@@ -205,9 +228,11 @@
   <div class="wadah">
     <div class="footer__atas">
       <div>
-        <p class="footer__merek">Baduy Villa</p>
-        <p class="footer__kalimat">Delapan paviliun di kaki Pegunungan Kendeng, Banten.
-          Menginap menurut adat.</p>
+        <p class="footer__kalimat">Menginap menurut adat. Delapan paviliun, tanpa televisi,
+          di lereng yang menghadap matahari pagi.</p>
+        <p class="footer__alamat">Kaki Pegunungan Kendeng<br>
+          Kabupaten Lebak, Banten<br>
+          Dua puluh menit berjalan kaki dari ujung kampung</p>
       </div>
 
       <div class="footer__kolom">
@@ -221,6 +246,19 @@
           </ul>
         </div>
         <div>
+          <h3>Delapan paviliun</h3>
+          <ul role="list">
+            <li><a class="tautan" href="paviliun-awi.html">Awi</a></li>
+            <li><a class="tautan" href="paviliun-ijuk.html">Ijuk</a></li>
+            <li><a class="tautan" href="paviliun-jati.html">Jati</a></li>
+            <li><a class="tautan" href="paviliun-tarum.html">Tarum</a></li>
+            <li><a class="tautan" href="paviliun-halimun.html">Halimun</a></li>
+            <li><a class="tautan" href="paviliun-cai.html">Cai</a></li>
+            <li><a class="tautan" href="paviliun-leuweung.html">Leuweung</a></li>
+            <li><a class="tautan" href="paviliun-isuk.html">Isuk</a></li>
+          </ul>
+        </div>
+        <div>
           <h3>Hubungi</h3>
           <ul role="list">
             <li><a class="tautan" data-wa href="https://wa.me/628119886714">WhatsApp</a></li>
@@ -229,6 +267,8 @@
         </div>
       </div>
     </div>
+
+    <p class="footer__merek">Baduy Villa</p>
 
     <div class="footer__bawah">
       <span>&copy; 2026 Baduy Villa</span>

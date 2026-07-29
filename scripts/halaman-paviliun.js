@@ -12,6 +12,23 @@ var PAVILIUN = data.PAVILIUN;
 var DENAH = data.DENAH;
 var BAHAN = data.BAHAN;
 
+/* Angka di halaman daftar dihitung dari data, bukan ditulis tangan. Menambah
+   paviliun kesembilan otomatis memperbarui rentangnya. */
+function rentang(medan) {
+  var nilai = PAVILIUN.map(function (p) { return p[medan]; });
+  var min = Math.min.apply(null, nilai);
+  var max = Math.max.apply(null, nilai);
+  return min === max ? String(min) : min + '–' + max;
+}
+
+function arah() {
+  var unik = [];
+  PAVILIUN.forEach(function (p) {
+    if (unik.indexOf(p.orientasi) === -1) unik.push(p.orientasi);
+  });
+  return unik.join(', ');
+}
+
 function kartu(p) {
   return [
     '        <a class="kartu" href="paviliun-' + p.id + '.html" data-reveal',
@@ -46,6 +63,18 @@ function daftar() {
     '',
     '  <section class="section">',
     '    <div class="wadah">',
+    '',
+    '      <!-- Strip angka menahan lebar penuh, jadi paragraf di bawahnya boleh',
+    '           bergeser ke kanan tanpa meninggalkan sisi kiri kosong melompong. -->',
+    '      <dl class="angka" data-reveal-grup>',
+    '        <div data-reveal><dt class="label">Jumlah</dt><dd class="tabular">' +
+      PAVILIUN.length + ' paviliun</dd></div>',
+    '        <div data-reveal><dt class="label">Arah pandang</dt><dd>' + arah() + '</dd></div>',
+    '        <div data-reveal><dt class="label">Luas</dt><dd class="tabular">' +
+      rentang('luas') + ' m&sup2;</dd></div>',
+    '        <div data-reveal><dt class="label">Tamu</dt><dd class="tabular">' +
+      rentang('tamu') + ' orang</dd></div>',
+    '      </dl>',
     '',
     '      <div class="grid" style="margin-top:var(--sp-4)">',
     '        <div class="kolom-offset" data-reveal>',

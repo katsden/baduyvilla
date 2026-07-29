@@ -131,10 +131,20 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="wadah">
-      <hr class="garis">
-      <p data-reveal><a class="tombol tombol--rotan" href="reservasi.html">Reservasi</a></p>
+  <!-- Penutup. Sebelumnya cuma satu garis dan satu tombol di ruang setinggi
+       400px, dan itu terbaca sebagai halaman yang belum selesai. -->
+  <section class="media r-hero" data-scrim="judul" data-parallax
+           data-img="Dapur terbuka menjelang malam, bara tungku, satu lampu menyala"
+           style="display:grid; place-items:center; text-align:center; margin-top:var(--section-gap)">
+    <img src="assets/img/penutup-santapan.jpg" alt="Dapur terbuka menjelang malam, bara tungku menyala rendah, satu lampu, lembah di belakangnya menggelap." loading="lazy">
+    <div class="wadah" style="position:relative; z-index:3" data-reveal-grup>
+      <span class="label" data-reveal>Makan malam</span>
+      <h2 data-reveal style="margin-top:var(--sp-2)">Menjelang gelap,<br>satu meja menyala</h2>
+      <p data-reveal style="margin:var(--sp-3) auto 0; max-width:42ch; color:var(--kapas-80)">
+        Sebutkan pantangan makan waktu memesan. Dapurnya kecil, dan lebih mudah
+        diatur sebelum daripada sesudah.</p>
+      <p data-reveal style="margin-top:var(--sp-4)">
+        <a class="tautan" href="reservasi.html">Reservasi</a></p>
     </div>
   </section>
 
@@ -145,9 +155,11 @@
   <div class="wadah">
     <div class="footer__atas">
       <div>
-        <p class="footer__merek">Baduy Villa</p>
-        <p class="footer__kalimat">Delapan paviliun di kaki Pegunungan Kendeng, Banten.
-          Menginap menurut adat.</p>
+        <p class="footer__kalimat">Menginap menurut adat. Delapan paviliun, tanpa televisi,
+          di lereng yang menghadap matahari pagi.</p>
+        <p class="footer__alamat">Kaki Pegunungan Kendeng<br>
+          Kabupaten Lebak, Banten<br>
+          Dua puluh menit berjalan kaki dari ujung kampung</p>
       </div>
 
       <div class="footer__kolom">
@@ -161,6 +173,19 @@
           </ul>
         </div>
         <div>
+          <h3>Delapan paviliun</h3>
+          <ul role="list">
+            <li><a class="tautan" href="paviliun-awi.html">Awi</a></li>
+            <li><a class="tautan" href="paviliun-ijuk.html">Ijuk</a></li>
+            <li><a class="tautan" href="paviliun-jati.html">Jati</a></li>
+            <li><a class="tautan" href="paviliun-tarum.html">Tarum</a></li>
+            <li><a class="tautan" href="paviliun-halimun.html">Halimun</a></li>
+            <li><a class="tautan" href="paviliun-cai.html">Cai</a></li>
+            <li><a class="tautan" href="paviliun-leuweung.html">Leuweung</a></li>
+            <li><a class="tautan" href="paviliun-isuk.html">Isuk</a></li>
+          </ul>
+        </div>
+        <div>
           <h3>Hubungi</h3>
           <ul role="list">
             <li><a class="tautan" data-wa href="https://wa.me/628119886714">WhatsApp</a></li>
@@ -169,6 +194,8 @@
         </div>
       </div>
     </div>
+
+    <p class="footer__merek">Baduy Villa</p>
 
     <div class="footer__bawah">
       <span>&copy; 2026 Baduy Villa</span>
