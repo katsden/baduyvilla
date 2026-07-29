@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservasi — Baduy Villa</title>
+<meta name="description" content="Tanya ketersediaan lewat WhatsApp. Dibalas dalam satu hari.">
+<meta property="og:title" content="Reservasi — Baduy Villa">
+<meta property="og:description" content="Tanya ketersediaan lewat WhatsApp. Dibalas dalam satu hari.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/komponen.css">
+<script>try{var s=sessionStorage;if(s.getItem('tirai-masuk')||!s.getItem('sudah-datang'))document.documentElement.classList.add('tirai-tertutup')}catch(e){}</script>
+</head>
+<body>
+
+<div class="tirai" data-tirai aria-hidden="true"></div>
+
+<a class="lewati" href="#utama">Lewati ke konten</a>
+
+<!-- ==== NAV — blok ini identik di semua halaman ========================= -->
+<header class="nav" data-nav>
+  <div class="nav__dalam wadah">
+    <a class="nav__merek" href="index.html">Baduy Villa</a>
+    <a class="nav__reservasi" href="reservasi.html">Reservasi</a>
+    <button class="nav__tombol" type="button"
+            data-menu-tombol aria-expanded="false"
+            aria-controls="menu-panel" aria-label="Buka menu">
+      <i aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu-panel" data-menu-panel data-buka="false">
+  <div class="menu__scrim" data-menu-tutup aria-hidden="true"></div>
+  <div class="menu__dalam">
+    <nav class="menu__daftar" aria-label="Navigasi utama">
+      <a href="index.html"><span class="menu__no">01</span>Beranda</a>
+      <a href="paviliun.html"><span class="menu__no">02</span>Paviliun</a>
+      <a href="santapan.html"><span class="menu__no">03</span>Santapan</a>
+      <a href="pengalaman.html"><span class="menu__no">04</span>Pengalaman</a>
+      <a href="reservasi.html"><span class="menu__no">05</span>Reservasi</a>
+    </nav>
+
+    <aside class="menu__samping">
+      <p class="label">Delapan paviliun</p>
+      <p class="menu__pav">Awi &middot; Ijuk &middot; Jati &middot; Tarum<br>
+        Halimun &middot; Cai &middot; Leuweung &middot; Isuk</p>
+      <hr class="garis">
+      <p class="label">Hubungi</p>
+      <p class="menu__pav">
+        <a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a><br>
+        <a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a>
+      </p>
+    </aside>
+  </div>
+</div>
+<!-- ==== /NAV =========================================================== -->
+
+<main id="utama">
+
+  <section class="section">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-kiri" data-reveal-grup>
+          <span class="label" data-reveal>Reservasi</span>
+          <h1 data-reveal style="margin-top:var(--sp-2)">Tanya dulu,<br>tidak apa-apa</h1>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:var(--sp-4)">
+        <div class="kolom-offset" data-reveal>
+          <p>Pemesanan tidak diselesaikan di halaman ini. Isi keterangan di bawah, dan
+            pertanyaannya dikirim lewat WhatsApp &mdash; dibalas dalam satu hari, oleh orang.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wadah">
+      <form class="borang" data-reservasi novalidate>
+        <div class="borang__baris">
+          <label class="borang__medan">
+            <span class="label">Nama</span>
+            <input type="text" name="nama" autocomplete="name" required placeholder="Nama yang dipakai saat datang">
+          </label>
+
+          <label class="borang__medan">
+            <span class="label">Jumlah tamu</span>
+            <input type="number" name="tamu" min="1" max="8" value="2" inputmode="numeric" required>
+          </label>
+        </div>
+
+        <label class="borang__medan">
+          <span class="label">Paviliun</span>
+          <select name="paviliun">
+            <option value="">Belum tahu, tolong sarankan</option>
+            <option value="awi">Awi &middot; Hutan &middot; 2 tamu</option>
+            <option value="ijuk">Ijuk &middot; Hutan &middot; 2 tamu</option>
+            <option value="jati">Jati &middot; Lembah &middot; 4 tamu</option>
+            <option value="tarum">Tarum &middot; Lembah &middot; 2 tamu</option>
+            <option value="halimun">Halimun &middot; Lembah &middot; 2 tamu</option>
+            <option value="cai">Cai &middot; Sungai &middot; 2 tamu</option>
+            <option value="leuweung">Leuweung &middot; Hutan &middot; 4 tamu</option>
+            <option value="isuk">Isuk &middot; Sungai &middot; 2 tamu</option>
+          </select>
+        </label>
+
+        <fieldset class="borang__medan borang__tanggal">
+          <legend class="label">Tanggal</legend>
+          <div class="kalender" data-kalender>
+            <div class="kalender__ringkas">
+              <button type="button" class="kalender__slot" data-kalender-slot="masuk" aria-live="polite">
+                <span class="label">Masuk</span><span data-kalender-teks="masuk">Pilih tanggal</span>
+              </button>
+              <span class="kalender__panah" aria-hidden="true">&rarr;</span>
+              <button type="button" class="kalender__slot" data-kalender-slot="keluar" aria-live="polite">
+                <span class="label">Keluar</span><span data-kalender-teks="keluar">Pilih tanggal</span>
+              </button>
+            </div>
+
+            <div class="kalender__panel" data-kalender-panel hidden>
+              <div class="kalender__kepala">
+                <button type="button" class="kalender__geser" data-kalender-mundur aria-label="Bulan sebelumnya">&larr;</button>
+                <span class="kalender__bulan" data-kalender-bulan aria-live="polite"></span>
+                <button type="button" class="kalender__geser" data-kalender-maju aria-label="Bulan berikutnya">&rarr;</button>
+              </div>
+              <div class="kalender__hari" aria-hidden="true">
+                <span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
+              </div>
+              <div class="kalender__petak" data-kalender-petak role="grid"></div>
+              <p class="caption kalender__catatan">Menginap paling singkat dua malam.</p>
+            </div>
+
+            <input type="hidden" name="masuk" data-kalender-nilai="masuk">
+            <input type="hidden" name="keluar" data-kalender-nilai="keluar">
+          </div>
+        </fieldset>
+
+        <label class="borang__medan">
+          <span class="label">Catatan</span>
+          <textarea name="catatan" rows="3" placeholder="Pantangan makan, kesulitan berjalan, jam sampai &mdash; apa saja yang perlu kami tahu lebih dulu"></textarea>
+        </label>
+
+        <p class="borang__galat" data-borang-galat hidden role="alert"></p>
+
+        <div class="borang__kirim">
+          <button class="tombol tombol--rotan" type="submit">Kirim lewat WhatsApp</button>
+          <p class="caption">Membuka WhatsApp dengan pesan yang sudah terisi. Belum ada yang terkirim sebelum kamu menekan kirim di sana.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wadah">
+      <div class="grid">
+        <div class="kolom-kiri" data-reveal-grup>
+          <span class="label" data-reveal>Sebelum datang</span>
+          <h2 data-reveal style="margin-top:var(--sp-2)">Hal-hal teknis</h2>
+        </div>
+      </div>
+
+      <div class="tanya-daftar" style="margin-top:var(--sp-4)">
+        <details class="tanya">
+          <summary>Waktu masuk dan keluar</summary>
+          <div class="tanya__isi"><p>Masuk mulai pukul 14.00, keluar sebelum pukul 11.00. Kalau datang lebih awal, tas bisa dititipkan di ruang tengah dan jalan setapaknya tetap boleh dipakai.</p></div>
+        </details>
+        <details class="tanya">
+          <summary>Cara sampai ke sini</summary>
+          <div class="tanya__isi"><p>Dari Rangkasbitung sekitar dua jam berkendara. Kendaraan berhenti di ujung kampung, lalu dua puluh menit berjalan kaki menanjak. Tas dibawakan. Kalau ada yang tidak kuat berjalan, beri tahu saat memesan &mdash; ada jalan memutar yang lebih landai tapi lebih lama.</p></div>
+        </details>
+        <details class="tanya">
+          <summary>Pembatalan</summary>
+          <div class="tanya__isi"><p>Batal lebih dari 14 hari sebelum tanggal masuk: dikembalikan penuh. Antara 7 sampai 14 hari: dikembalikan separuh. Kurang dari 7 hari: tidak dikembalikan, tapi tanggalnya bisa dipindah satu kali dalam enam bulan.</p></div>
+        </details>
+        <details class="tanya">
+          <summary>Aturan di dalam area</summary>
+          <div class="tanya__isi"><p>Tidak ada televisi, dan pengeras suara tidak dipakai di mana pun. Merokok hanya di teras masing-masing. Alas kaki dilepas sebelum naik ke lantai tanah. Anak-anak boleh, tapi sungainya tidak berpagar.</p></div>
+        </details>
+        <details class="tanya">
+          <summary>Sinyal dan listrik</summary>
+          <div class="tanya__isi"><p>Sinyal telepon ada di teras Halimun dan di jalan setapak dekat gerbang; di paviliun lain hampir tidak ada. Listrik dari surya, cukup untuk lampu dan mengisi daya telepon, tidak cukup untuk pengering rambut atau pemanas.</p></div>
+        </details>
+        <details class="tanya">
+          <summary>Menginap paling singkat</summary>
+          <div class="tanya__isi"><p>Dua malam. Satu malam habis untuk datang dan pergi, dan hampir semua yang menginap semalam bilang mereka baru merasa sampai ketika sudah harus turun.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==== FOOTER — blok ini identik di semua halaman ====================== -->
+<footer class="footer">
+  <div class="wadah">
+    <div class="footer__atas">
+      <div>
+        <p class="footer__merek">Baduy Villa</p>
+        <p class="footer__kalimat">Delapan paviliun di kaki Pegunungan Kendeng, Banten.
+          Menginap menurut adat.</p>
+      </div>
+
+      <div class="footer__kolom">
+        <div>
+          <h3>Jelajah</h3>
+          <ul role="list">
+            <li><a class="tautan" href="paviliun.html">Paviliun</a></li>
+            <li><a class="tautan" href="santapan.html">Santapan</a></li>
+            <li><a class="tautan" href="pengalaman.html">Pengalaman</a></li>
+            <li><a class="tautan" href="reservasi.html">Reservasi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hubungi</h3>
+          <ul role="list">
+            <li><a class="tautan" href="https://wa.me/6281234567890">WhatsApp</a></li>
+            <li><a class="tautan" href="mailto:halo@baduyvilla.id">halo@baduyvilla.id</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bawah">
+      <span>&copy; 2026 Baduy Villa</span>
+      <span>Situs fiktif, dibuat sebagai karya rancang.</span>
+    </div>
+  </div>
+</footer>
+<!-- ==== /FOOTER ======================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/tirai.js"></script>
+<script src="js/gerak.js"></script>
+<script src="js/kalender.js"></script>
+<script src="js/reservasi.js"></script>
+</body>
+</html>

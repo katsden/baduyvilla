@@ -164,4 +164,9 @@
   /* Jaring pengaman: kalau halaman tujuan gagal dimuat dan pengguna
      tertinggal di halaman ini, panel dibuka kembali. */
   window.addEventListener('pagehide', function () { sedangPergi = false; });
+
+  /* Perpindahan yang dipicu dari skrip lain — bukan dari klik tautan —
+     tetap lewat tirai yang sama. Dipakai borang reservasi setelah pesan
+     WhatsApp dibuka. */
+  window.Tirai = { pergi: pergi };
 })();
