@@ -13,7 +13,7 @@
 
   /* Nomornya tinggal di js/kontak.js, satu tempat untuk seluruh situs.
      Nilai cadangan di sini hanya dipakai kalau berkas itu gagal dimuat. */
-  var NOMOR = (window.KONTAK && window.KONTAK.wa) || '6281234567890';
+  var NOMOR = (window.KONTAK && window.KONTAK.wa) || '628119886714';
 
   var borang = document.querySelector('[data-reservasi]');
   if (!borang) return;

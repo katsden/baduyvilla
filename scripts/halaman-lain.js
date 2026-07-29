@@ -383,7 +383,7 @@ function terimaKasih() {
     '          <p style="margin-top:var(--sp-4)">Pesannya sudah terbuka di WhatsApp. Kalau jendelanya',
     '            tidak muncul, buka lagi lewat tautan di bawah &mdash; keterangan yang kamu isi masih ada.</p>',
     '          <p style="margin-top:var(--sp-4)">',
-    '            <a class="tautan" data-buka-lagi data-wa href="https://wa.me/6281234567890">Buka WhatsApp lagi</a>',
+    '            <a class="tautan" data-buka-lagi data-wa href="https://wa.me/628119886714">Buka WhatsApp lagi</a>',
     '          </p>',
     '          <p style="margin-top:var(--sp-5)">',
     '            <a class="tombol" href="index.html">Kembali ke beranda</a>',
